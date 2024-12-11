@@ -45,7 +45,6 @@
   	dates = "Sat 12:00";
   	
   };
-
   
 
   networking.hostName = "Hydrus"; # Define your hostname.
@@ -89,6 +88,13 @@
   hardware.bluetooth.enable = true;
 
   location.provider = "geoclue2";
+
+  powerManagement = {
+    enable = true;
+    lidSwitch = "lock";
+    lidSwitchExternalPower = "lock";
+    lidSwitchDocked = "ignore";
+  };
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
