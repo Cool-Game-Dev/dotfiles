@@ -5,7 +5,7 @@
 { config, lib, pkgs, ... }:
 
 {
-
+  nixpkgs.config.allowUnfree = true;
   # Use the grub boot loader.
   boot.loader.grub = {
     enable = true;
@@ -45,7 +45,8 @@
   	dates = "Sat 12:00";
   	
   };
-  
+
+  environment.localBinInPath = true;
 
   networking.hostName = "Hydrus"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -122,8 +123,11 @@
 
   users.users.Coolio = {
     isNormalUser = true;
-    extraGroups = [ "Coolio" "wheel" "video" ]; # Enable ‘sudo’ for the user.
+    group = "Coolio";
+    extraGroups = [ "wheel" "video" ]; # Enable ‘sudo’ for the user.
   };
+
+  users.groups.Coolio = {};
 
   programs = {
     hyprland.enable = true;
