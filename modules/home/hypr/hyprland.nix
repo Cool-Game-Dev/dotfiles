@@ -164,11 +164,6 @@
       	"$shiftMod, E, exec, enteauth"
       	"$shiftMod, return, exec, $menu"
       	"$mainMod, PERIOD, exec, bemoji --private -c -n"
-      	"$mainMod, G, exec, godot-mono"
-      	"$mainMod, O, exec, obsidian"
-      	"$mainMod, P, exec, pycharm"
-      	"$mainMod, R, exec, rider"
-      	"$mainMod, A, exec, aseprite"
       	"$shiftMod, C, exec, hyprpicker"
       	"$shiftMod, L, exec, hyprlock"
 

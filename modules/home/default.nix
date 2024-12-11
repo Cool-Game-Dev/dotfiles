@@ -21,5 +21,7 @@
     ./godot.nix
     ./rofi/rofi.nix
     ./kcalc.nix
+    ./jetbrains-toolbox.nix
+    ./dotnet.nix
   ];
 }

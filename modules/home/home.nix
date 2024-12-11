@@ -17,17 +17,15 @@
   
   # The home.packages option allows you to install Nix packages into your
   # environment.
+  
   home.packages = with pkgs; [
     gh
     cava
     waybar
     unimatrix
-    oh-my-zsh
-    zsh-powerlevel10k
-    zsh-fast-syntax-highlighting
-    zsh-autocomplete
   ];
 
+  nixpkgs.config.allowUnfree = true;
   programs.zsh.enable = true;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
