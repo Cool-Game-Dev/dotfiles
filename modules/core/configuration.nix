@@ -127,6 +127,7 @@
 
   programs = {
     hyprland.enable = true;
+    ssh.startAgent = true;
   };
  
 
