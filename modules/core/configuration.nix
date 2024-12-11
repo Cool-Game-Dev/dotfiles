@@ -89,13 +89,6 @@
 
   location.provider = "geoclue2";
 
-  powerManagement = {
-    enable = true;
-    lidSwitch = "lock";
-    lidSwitchExternalPower = "lock";
-    lidSwitchDocked = "ignore";
-  };
-
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
@@ -120,12 +113,13 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
+  services.logind.extraConfig = ''
+    HandlePowerKey=ignore
+    Lid
+  '';
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
 
-#   home-manager.users.Coolio = {
-#     home.stateVersion = "24.11";
-#   };
-  
   users.users.Coolio = {
     isNormalUser = true;
     extraGroups = [ "Coolio" "wheel" "video" ]; # Enable ‘sudo’ for the user.

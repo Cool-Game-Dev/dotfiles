@@ -20,5 +20,6 @@
     ./bluedevil.nix
     ./godot.nix
     ./rofi/rofi.nix
+    ./kcalc.nix
   ];
 }
