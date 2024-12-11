@@ -1,0 +1,119 @@
+{ config, lib, pkgs, ... }:
+
+{   
+  programs.hyprlock = {
+    enable = true;
+    settings = {
+      
+      # GENERAL
+      general = {
+        no_fade_in = false;
+        no_fade_out = true;
+        hide_cursor = true;
+        grace = 3;
+        disable_loading_bar = true;
+      };
+
+      # BACKGROUND
+      background = [
+        {
+          monitor = "";
+          #path = screenshot
+          path = "~/.dotfiles/wallpapers/wallpaper.jpg";
+          #color = $background
+          blur_size = 5;
+          blur_passes = 2;
+          contrast = 1;
+          brightness = 0.5;
+          vibrancy = 0.2;
+          vibrancy_darkness = 0.2;
+        }
+      ];
+
+      
+      # INPUT FIELD
+      input-field = [
+        {
+          monitor = "";
+          size = "250, 60";
+          outline_thickness = 2;
+          dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
+          dots_spacing = 0.35; # Scale of dots' absolute size, 0.0 - 1.0
+          dots_center = true;
+          outer_color = "rgb(0c1225)";
+          inner_color = "rgb(0c1225)";
+          font_color = "rgb(51e1e9)";
+          fade_on_empty = false;
+          rounding = -1;
+          placeholder_text = "<span foreground='##437cf3'><i>Logged in as</i><span foreground='##9446f8'> <b>Aiden</b></span></span>";
+          loading_color = "rgb(52eea3)";
+          fail_color = "rgb(e3365e)";
+          fail_text = "<i>$FAIL <b>$ATTEMPTS</b></i>";
+          hide_input = false;
+          position = "0, -200";
+          halign = "center";
+          valign = "center";
+        }
+      ];
+      # DATE
+      label = [
+        {
+          monitor = "";
+          text = "cmd[update:1000] echo $(date +'%A, %B %d')";
+          color = "rgba(242, 243, 244, 0.75)";
+          font_size = 22;
+          font_family = "JetBrains Mono NF";
+          position = "0, 300";
+          halign = "center";
+          valign = "center";
+        }
+        # TIME
+        {
+          monitor = "";
+          text = "cmd[update:1000] echo $(date +'%-I:%M')";
+          color = "rgba(242, 243, 244, 0.75)";
+          font_size = 95;
+          font_family = "JetBrains Mono NF Extrabold";
+          position = "0, 200";
+          halign = "center";
+          valign = "center";
+        }
+      
+      # CURRENT SONG
+      #   {
+      #     monitor =
+      #     text = cmd[update:1000] echo "$(/home/justin/Documents/Scripts/whatsong.sh)" 
+      #     color = $foreground
+      #     #color = rgba(255, 255, 255, 0.6)
+      #     font_size = 18
+      #     font_family = JetBrains Mono NF
+      #     position = 0, 50
+      #     halign = center
+      #     valign = bottom
+      #   }
+        
+      #   {
+      #     monitor =
+      #     text = cmd[update:1000] echo "$(/home/justin/Documents/Scripts/battery.sh)"
+      #     color = $foreground
+      #     font_size = 24
+      #     font_family = JetBrains Mono NF
+      #     position = -90, -10
+      #     halign = right
+      #     valign = top
+      #   }
+        
+      #   {
+      #     monitor =
+      #     text = cmd[update:1000] echo "$(/home/justin/Documents/Scripts/network-status.sh)"
+      #     color = $foreground
+      #     font_size = 24
+      #     font_family = JetBrains Mono NF
+      #     position = -20, -10
+      #     halign = right
+      #   }
+      
+      ];
+    };
+  };
+}    
