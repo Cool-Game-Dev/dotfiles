@@ -23,5 +23,6 @@
     ./kcalc.nix
     ./jetbrains-toolbox.nix
     ./dotnet.nix
+    ./aseprite.nix
   ];
 }
