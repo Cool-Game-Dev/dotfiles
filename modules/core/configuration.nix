@@ -236,7 +236,6 @@
 
   services.logind.extraConfig = ''
     HandlePowerKey=ignore
-    Lid
   '';
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
