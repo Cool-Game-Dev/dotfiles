@@ -161,7 +161,6 @@
       	"$mainMod, RETURN, exec, $terminal"
       	"$mainMod, B, exec, $browser"
       	"$mainMod, E, exec, $fileManager"
-      	"$shiftMod, E, exec, enteauth"
       	"$shiftMod, return, exec, $menu"
       	"$mainMod, PERIOD, exec, bemoji --private -c -n"
       	"$shiftMod, C, exec, hyprpicker"

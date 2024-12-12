@@ -50,7 +50,7 @@
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
-SDL
+     SDL
      SDL2
      SDL2_image
      SDL2_mixer
@@ -165,6 +165,7 @@ SDL
      zlib
   ];
 
+  security.pam.services.login.enableGnomeKeyring = true;
   networking.hostName = "Hydrus"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -217,6 +218,8 @@ SDL
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
+  services.gnome.gnome-keyring.enable = true;
+  
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
