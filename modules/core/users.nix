@@ -1,17 +1,17 @@
-{ config, pkgs, ... }:
+{ config, pkgs, userSettings, ... }:
 
 {
   users = {
     defaultUserShell = pkgs.zsh;
     
-    users.Coolio = {
+    users."${userSettings.username}"  = {
       isNormalUser = true;
-      group = "Coolio";
+      group = "${userSettings.username}";
       extraGroups = [ "wheel" "video" ];
     };
     
     groups = {
-      Coolio = { };
+      "${userSettings.username}" = { gid = 1000; };
     };
   };
 }

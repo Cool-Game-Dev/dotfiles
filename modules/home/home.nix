@@ -1,4 +1,4 @@
-{ config, pkgs, userSettings,  ... };
+{ config, pkgs, userSettings,  ... }:
 
 {
   home = {
@@ -7,7 +7,7 @@
   
 
   
-    home.packages = with pkgs; [
+    packages = with pkgs; [
       cava
       unimatrix
       unzip

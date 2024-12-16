@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, userSettings, ... }:
 
 {
   home.packages = [
@@ -12,9 +12,9 @@
 
     shellAliases = {
       "sudo" = "sudo ";
-      "rb" = "sudo nixos-rebuild switch --flake /home/Coolio/.dotfiles";
-      "hm-rb" = "home-manager switch --flake /home/Coolio/.dotfiles";
-      "fl-ud" = "nix flake update --flake  ~/.dotfiles";
+      "rb" = "sudo nixos-rebuild switch --flake ${userSettings.dotfilesDir}";
+      "hm-rb" = "home-manager switch --flake ${userSettings.dotfilesDir}";
+      "fl-ud" = "nix flake update --flake  ${userSettings.dotfilesDir}";
     };
     
     zsh-abbr = {

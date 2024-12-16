@@ -27,6 +27,8 @@
 
       userSettings = {
         username = "Coolio";
+        name = "Coolio";
+        dotfilesDir = "/home/${userSettings.username}/.dotfiles";
       };     
       pkgs = (import nixpkgs { system = systemSettings.system; });
       lib = inputs.nixpkgs.lib;
@@ -35,6 +37,10 @@
         Hydrus = lib.nixosSystem {
           system = systemSettings.system;
           modules = [ ./modules/core ];
+          specialArgs = { 
+            inherit systemSettings;
+            inherit userSettings; 
+          };
         };
       };
 
