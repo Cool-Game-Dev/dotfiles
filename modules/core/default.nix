@@ -1,9 +1,16 @@
 { 
   imports = [
-     ./configuration.nix 
-     ./hardware-configuration.nix 
-     ./pkgs.nix 
-     ./greetd.nix  
-     ./services.nix
+      ./boot.nix
+      ./environment.nix
+      ./hardware-configuration.nix
+      ./hardware.nix
+      ./ld.nix
+      ./networking.nix
+      ./pkgs.nix
+      ./programs.nix
+      ./security.nix
+      ./services.nix
+      ./settings.nix
+      ./users.nix
      ];
 }
