@@ -20,15 +20,20 @@
 
   outputs = { self, nixpkgs, home-manager, zen-browser, ... } @ inputs:
     let
-      system = "x86_64-linux";
-      username = "Coolio";
-      lib = nixpkgs.lib;
-      pkgs = nixpkgs.legacyPackages.${system};
+      
+      systemSettings = {
+        system = "x86_64-linux";
+      };
 
+      userSettings = {
+        username = "Coolio";
+      };     
+      pkgs = (import nixpkgs { system = systemSettings.system; });
+      lib = inputs.nixpkgs.lib;
     in {
       nixosConfigurations = {
         Hydrus = lib.nixosSystem {
-          inherit system;
+          system = systemSettings.system;
           modules = [ ./modules/core ];
         };
       };
@@ -37,7 +42,12 @@
         Coolio = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./modules/home ];
-          extraSpecialArgs = { inherit zen-browser; inherit inputs; };
+          extraSpecialArgs = { 
+            inherit zen-browser; 
+            inherit inputs;
+            inherit systemSettings;
+            inherit userSettings; 
+          };
         };
       };
     };

@@ -1,10 +1,10 @@
-{ config, pkgs, zen-browser, ... }@inputs:
+{ config, pkgs, userSettings, zen-browser, ... } @ inputs:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "Coolio";
-  home.homeDirectory = "/home/Coolio";
+  home.username = userSettings.username;
+  home.homeDirectory = "/home/${userSettings.username}";
 
   nixpkgs.config.permittedInsecurePackages = [
      "dotnet-runtime-wrapped-6.0.36"
@@ -32,6 +32,7 @@
     cava
     waybar
     unimatrix
+    unzip
     # tagstudio # Flake doesn't work. Yell at Cyan and Xarvex for this later.
   ];
 
