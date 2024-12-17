@@ -21,5 +21,6 @@
     ./aseprite.nix
     ./obsidian.nix
     ./cmd-line-tools.nix
+    ./xdg.nix
   ];
 }
