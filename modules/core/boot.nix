@@ -4,8 +4,9 @@
   boot = {
   
     kernelPackages = pkgs.linuxPackages_zen;
+    kernelParams = [ "resume_offset=7979008" ];
     initrd.systemd.enable = true;
-    resumeDevice = "/var/swapfile";
+    resumeDevice = "/dev/mapper/cryptroot";
     
     loader = {
     

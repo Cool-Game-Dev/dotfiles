@@ -7,7 +7,14 @@
     gvfs.enable = true;
     udisks2.enable = true;
     gnome.gnome-keyring.enable = true;
+    
     printing.enable = true;
+
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
     
     pipewire = {
       enable = true;
@@ -24,10 +31,7 @@
     };
     
     libinput.enable = true;
-    logind.extraConfig = ''
-      HandleLidSwitch=ignore
-      HandleLidSwitchExternalPower=ignore
-    '';
+    logind.lidSwitch="ignore";
 
       openssh.enable = true;
   };

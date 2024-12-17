@@ -33,9 +33,4 @@
   i18n.defaultLocale = "en_US.UTF-8";
   
   time.timeZone = "America/Chicago";
-
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-  }; 
 }

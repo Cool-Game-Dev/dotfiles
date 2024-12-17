@@ -22,5 +22,6 @@
     ./obsidian.nix
     ./cmd-line-tools.nix
     ./xdg.nix
+    ./libreoffice.nix
   ];
 }
