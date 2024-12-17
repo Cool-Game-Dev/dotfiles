@@ -17,8 +17,12 @@
     fsType = "ext4";
   };
 
-  boot.initrd.luks.devices."cryptroot".device =
-    "/dev/disk/by-uuid/da177268-c9e3-4684-989a-d2c49238d7d5";
+  boot.initrd.luks.devices."cryptroot" = {
+    device = "/dev/disk/by-uuid/da177268-c9e3-4684-989a-d2c49238d7d5";
+    keyFile = "/dev/disk/by-id/usb-SanDisk_Cruzer_Glide_04018707072724002808-0:0";
+    keyFileOffset = 14250000;
+    keyFileSize   = 4096;
+  };
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/905E-FD2C";
@@ -27,10 +31,10 @@
   };
 
   swapDevices = [{
-    device = "/swapfile";
-    size = 16 * 1024; # 16GB
-    randomEncryption.enable = true; 
+    device = "/swapfile"; 
+    size = 16 * 1024;
   }];
+  
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
