@@ -19,9 +19,6 @@
 
   boot.initrd.luks.devices."cryptroot" = {
     device = "/dev/disk/by-uuid/da177268-c9e3-4684-989a-d2c49238d7d5";
-    keyFile = "/dev/disk/by-id/usb-SanDisk_Cruzer_Glide_04018707072724002808-0:0";
-    keyFileOffset = 14250000;
-    keyFileSize   = 4096;
   };
 
   fileSystems."/boot" = {
