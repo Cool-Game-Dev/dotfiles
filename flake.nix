@@ -23,6 +23,7 @@
       
       systemSettings = {
         system = "x86_64-linux";
+        hostname = "Hydrus";
       };
 
       userSettings = {
@@ -34,7 +35,7 @@
       lib = inputs.nixpkgs.lib;
     in {
       nixosConfigurations = {
-        Hydrus = lib.nixosSystem {
+        "${systemSettings.hostName}" = lib.nixosSystem {
           system = systemSettings.system;
           modules = [ ./modules/core ];
           specialArgs = { 
@@ -45,7 +46,7 @@
       };
 
       homeConfigurations = {
-        Coolio = home-manager.lib.homeManagerConfiguration {
+        "${userSettings.username}" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./modules/home ];
           extraSpecialArgs = { 

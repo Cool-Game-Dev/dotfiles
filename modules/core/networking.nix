@@ -1,8 +1,8 @@
-{ config, ... }:
+{ config, systemSettings, ... }:
 
 {
   networking = {
     networkmanager.enable =true;
-    hostName = "Hydrus";
+    hostName = systemSettings.hostName;
   }; 
 }
