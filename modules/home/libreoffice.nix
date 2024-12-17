@@ -2,7 +2,7 @@
 
 {
   home.packages = [
-  	libreoffice-qt
-  	hunspell
-  ]
+    pkgs.libreoffice-qt6-fresh
+    pkgs.hunspell
+  ];
 }
