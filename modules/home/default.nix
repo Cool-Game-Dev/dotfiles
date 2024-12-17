@@ -20,5 +20,6 @@
     ./dotnet.nix
     ./aseprite.nix
     ./obsidian.nix
+    ./cmd-line-tools.nix
   ];
 }

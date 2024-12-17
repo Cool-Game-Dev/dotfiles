@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, userSettings, ... }:
 
 {
   programs.hyprlock = {
@@ -42,7 +42,7 @@
         fade_on_empty = false;
         rounding = -1;
         placeholder_text =
-          "<span foreground='##437cf3'><i>Logged in as</i><span foreground='##9446f8'> <b>$USER</b></span></span>";
+          "<span foreground='##437cf3'><i>Logged in as</i><span foreground='##9446f8'> <b>${userSettings.name}</b></span></span>";
         loading_color = "rgb(52eea3)";
         fail_color = "rgb(e3365e)";
         fail_text = "<i>$FAIL <b>$ATTEMPTS</b></i>";

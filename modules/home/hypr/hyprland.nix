@@ -2,7 +2,7 @@
 
 {
   wayland.windowManager.hyprland = {
-    
+    enable = true;
     settings = {
       "$terminal" = "kitty";
       "$fileManager" = "dolphin";
@@ -299,6 +299,6 @@
         force_zero_scaling = true
       }
       '';
+    systemd.enable = true;
   };
-
 }

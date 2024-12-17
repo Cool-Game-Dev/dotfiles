@@ -15,6 +15,7 @@
       "rb" = "sudo nixos-rebuild switch --flake ${userSettings.dotfilesDir}";
       "hm-rb" = "home-manager switch --flake ${userSettings.dotfilesDir}";
       "fl-ud" = "nix flake update --flake  ${userSettings.dotfilesDir}";
+      "rm" = "trash-put";
     };
     
     zsh-abbr = {
