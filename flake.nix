@@ -23,7 +23,7 @@
       
       systemSettings = {
         system = "x86_64-linux";
-        hostname = "Hydrus";
+        hostName = "Hydrus";
       };
 
       userSettings = {
