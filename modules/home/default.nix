@@ -23,5 +23,6 @@
     ./cmd-line-tools.nix
     ./xdg.nix
     ./libreoffice.nix
+    ./tmux.nix
   ];
 }
