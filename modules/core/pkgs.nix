@@ -1,3 +1,3 @@
 { inputs, pkgs, ... }: {
-  environment.systemPackages = with pkgs; [ git killall btop micro-with-wl-clipboard kitty man ];
+  environment.systemPackages = with pkgs; [ appimage-run git killall btop micro-with-wl-clipboard kitty man ];
 }

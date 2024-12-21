@@ -140,10 +140,11 @@
       };
 
       "$mainMod" = "SUPER";
-      "$shiftMod" = "$mainMod + SHIFT";
-      "$ctrlMod" = "$mainMod + CTRL";
-      "$altMod" = "$mainMod + ALT";
-      "$ctrlShiftMod" = "$mainMod + CTRL_SHIFT";
+      "$shiftMod" = "SUPER + SHIFT";
+      "$ctrlMod" = "SUPER + CTRL";
+      "$altMod" = "SUPER + ALT";
+      "$ctrlShiftMod" = "SUPER + CTRL_SHIFT";
+      "$altShiftMod" = "SUPER + CTRL_ALT";
 
       bind = [
         # Program binds
@@ -152,7 +153,8 @@
         "$mainMod, E, exec, $fileManager"
         "$shiftMod, return, exec, $menu"
         "$mainMod, PERIOD, exec, bemoji --private -c -n"
-        "$shiftMod, C, exec, hyprpicker"
+        "$shiftMod, C, exec, hyprpicker --autocopy"
+        "$altShiftMod, C, exec, hyprpicker --fmt=rgb --autocopy" 
         "$shiftMod, L, exec, hyprlock"
 
         ", PRINT, exec, hyprshot -m output -o ~/Media/Images"
@@ -221,7 +223,7 @@
         
         # Close hyprland with Mod + M
 
-        "$mainMod, M, exit,"
+        "$shiftMod, escape, exit,"
       ];
 
 

@@ -18,7 +18,7 @@
     alternate-urgent-foreground: @urgent-foreground;
     alternate-active-foreground: @active-foreground;
     
-    background:                  #0c1225;
+    background:                  rgba( 12, 18, 37, 60 % );
     lightbg:                     #515768;
     normal-background:           @background;
     urgent-background:           @background;
@@ -30,8 +30,7 @@
     alternate-urgent-background: @urgent-background;
     alternate-active-background: @active-background;
 
-    
-    bordercolor:                 #515768;
+	window-border-color:         #515768;
     border-color:                #51e1e9;
     separatorcolor:              rgba ( 219, 223, 188, 100 % );
     background-color:            rgba ( 0, 0, 0, 0 % );
@@ -40,6 +39,8 @@
 window {
     background-color: @background;
     border:           1;
+    border-radius:    10px;
+    border-color:     @window-border-color;
     padding:          5;
 }
 mainbox {
@@ -71,15 +72,12 @@ element-text {
     text-color:       inherit;
 }
 element.normal.normal {
-    background-color: @normal-background;
     text-color:       @normal-foreground;
 }
 element.normal.urgent {
-    background-color: @urgent-background;
     text-color:       @urgent-foreground;
 }
 element.normal.active {
-    background-color: @active-background;
     text-color:       @active-foreground;
 }
 
@@ -87,7 +85,8 @@ element.selected.normal {
     background-color: @selected-normal-background;
     text-color:       @selected-normal-foreground;
     border-color:     @border-color;
-    border:           2px;
+    
+    border:           1px;
     border-radius:    5px;
 }
 element.selected.urgent {
@@ -99,15 +98,12 @@ element.selected.active {
     text-color:       @selected-active-foreground;
 }
 element.alternate.normal {
-    background-color: @alternate-normal-background;
     text-color:       @alternate-normal-foreground;
 }
 element.alternate.urgent {
-    background-color: @alternate-urgent-background;
     text-color:       @alternate-urgent-foreground;
 }
 element.alternate.active {
-    background-color: @alternate-active-background;
     text-color:       @alternate-active-foreground;
 }
 
