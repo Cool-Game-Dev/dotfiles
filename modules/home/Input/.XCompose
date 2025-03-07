@@ -1,0 +1,4 @@
+include "%L"
+
+<Multi_key> <dollar> <c> : "¢" U00A2
+<Multi_key> <a> <b> : "ɐ" U0250
