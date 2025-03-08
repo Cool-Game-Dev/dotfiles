@@ -51,7 +51,7 @@
     },
     {
       "format": "{pretty-name} {arch}",
-      "key": " OS",
+      "key": " OS",
       "keyColor": "blue",
       "type": "os"
     },
