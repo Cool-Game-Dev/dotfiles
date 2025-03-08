@@ -161,8 +161,7 @@ in {
       };
 
       "#inputbar" = {
-        children =
-          [ "prompt" "textbox-prompt-colon" "entry" "case-indicator" ];
+        children = [ "prompt" "textbox-prompt-colon" "entry" "case-indicator" ];
       };
 
       "#textbox-prompt-colon" = {

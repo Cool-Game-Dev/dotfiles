@@ -1,5 +1,12 @@
 { pkgs, systemSettings, ... }@inputs: {
-  imports = [ ./hyprland.nix ./hyprlock.nix ./hypridle.nix ./hyprpaper.nix ./hyprshot.nix ./hyprpicker.nix];
+  imports = [
+    ./hyprland.nix
+    ./hyprlock.nix
+    ./hypridle.nix
+    ./hyprpaper.nix
+    ./hyprshot.nix
+    ./hyprpicker.nix
+  ];
 
   home.packages = [
     pkgs.hyprpolkitagent
