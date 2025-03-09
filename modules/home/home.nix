@@ -5,7 +5,7 @@
     username = userSettings.username;
     homeDirectory = "/home/${userSettings.username}";
 
-    packages = with pkgs; [ cava unimatrix unzip ];
+    packages = with pkgs; [ unzip ];
 
     sessionVariables = { EDITOR = "micro"; };
 
@@ -24,10 +24,8 @@
 
   programs.home-manager.enable = true;
 
-  nixpkgs.config = { 
+  nixpkgs.config = {
     allowUnfree = true;
-    permittedInsecurePackages = [
-      "dotnet-sdk-6.0.428"
-    ];
+    permittedInsecurePackages = [ "dotnet-sdk-6.0.428" ];
   };
 }

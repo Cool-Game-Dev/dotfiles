@@ -1,6 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ ./fastfetch/fastfetch.nix ./starship/starship.nix ./tmux.nix ./zsh.nix ];
+  imports = [
+    ./cava.nix
+    ./fastfetch/fastfetch.nix
+    ./starship/starship.nix
+    ./tmux.nix
+    ./unimatrix.nix
+    ./zsh.nix
+  ];
 }
