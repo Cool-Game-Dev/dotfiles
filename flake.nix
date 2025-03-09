@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
+    stable.url = "nixpkgs/nixos-24.11";
+
     activate-linux.url = "github:MrGlockenspiel/activate-linux";
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -49,6 +51,7 @@
       };
       vauxhall = import ./Vauxhall.nix;
       pkgs = (import nixpkgs { system = systemSettings.system; });
+      stable = (import stable { system = systemSettings.system; });
 
     in {
       nixosConfigurations = {

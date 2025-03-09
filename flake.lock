@@ -629,8 +629,24 @@
         "hyprland": "hyprland",
         "hyprland-qtutils": "hyprland-qtutils_2",
         "nixpkgs": "nixpkgs_2",
+        "stable": "stable",
         "tagstudio": "tagstudio",
         "zen-browser": "zen-browser"
+      }
+    },
+    "stable": {
+      "locked": {
+        "lastModified": 1741332913,
+        "narHash": "sha256-ri1e8ZliWS3Jnp9yqpKApHaOo7KBN33W8ECAKA4teAQ=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "20755fa05115c84be00b04690630cb38f0a203ad",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "nixos-24.11",
+        "type": "indirect"
       }
     },
     "systems": {
