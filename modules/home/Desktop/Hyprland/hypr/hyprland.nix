@@ -5,6 +5,7 @@
     enable = true;
     plugins = [
       # inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
+      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
     ];
 
     settings = {
@@ -23,7 +24,7 @@
         "activate-linux -t 'Activate NixOS' -m 'Go to Dotfiles to activate NixOS' -s 0.8208 --daemonize" # The scale is the smallest it can be without glitching
       ];
 
-      "plugin:dynamic-cursors" = {
+     "plugin:dynamic-cursors" = {
         enabled = true;
         mode = "rotate";
       };
