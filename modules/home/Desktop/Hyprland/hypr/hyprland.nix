@@ -3,6 +3,10 @@
 {
   wayland.windowManager.hyprland = {
     enable = true;
+    plugins = [
+      # inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
+    ];
+
     settings = {
       "$terminal" = "kitty";
       "$fileManager" = "dolphin";
@@ -18,6 +22,11 @@
         "hypridle"
         "activate-linux -t 'Activate NixOS' -m 'Go to Dotfiles to activate NixOS' -s 0.8208 --daemonize" # The scale is the smallest it can be without glitching
       ];
+
+      "plugin:dynamic-cursors" = {
+        enabled = true;
+        mode = "rotate";
+      };
 
       input = {
         kb_layout = "us";

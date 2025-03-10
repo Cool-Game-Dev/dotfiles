@@ -12,19 +12,26 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-      inputs.nixpkgs.follows = "nixpkgs";
+    hyprland.url = "github:hyprwm/Hyprland";
+
+    hyprland-plugins = {
+        url = "github:hyprwm/hyprland-plugins";
+        inputs.hyprland.follows = "hyprland";
+    };
+
+    hypr-dynamic-cursors = {
+        url = "github:VirtCode/hypr-dynamic-cursors";
+        inputs.hyprland.follows = "hyprland"; 
     };
 
     hyprland-qtutils = {
       url = "github:hyprwm/hyprland-qtutils";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.hyprland.follows = "hyprland";
     };
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
-    tagstudio.url = "github:TagStudioDev/TagStudio/layout-refactor-1";
+    tagstudio.url = "github:TagStudioDev/TagStudio/";
   };
 
   outputs = { self, nixpkgs, home-manager, zen-browser, ... }@inputs:
