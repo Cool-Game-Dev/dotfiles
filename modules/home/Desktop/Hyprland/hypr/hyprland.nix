@@ -27,6 +27,7 @@
        dynamic-cursors = {
         enabled = true;
         mode = "tilt";
+        tilt.limit = 2500;
         shake.enabled = false;
        };
       };
