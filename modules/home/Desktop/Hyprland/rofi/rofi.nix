@@ -65,7 +65,7 @@ in {
         fixed-height = mkLiteral "0";
         border = mkLiteral "2px 0px 0px";
         border-color = mkLiteral "@separatorcolor";
-        spacing = mkLiteral "2px";
+        spacing = mkLiteral "10px";
         scrollbar = mkLiteral "true";
         padding = mkLiteral "2px 0px 0px";
       };
@@ -174,8 +174,10 @@ in {
 
     extraConfig = {
       "modes" = "window,drun,run,ssh";
-      "font" = ''JetBrains Mono NF 12", "Twemoji", "Noto Color Emoji 12'';
+      "font" = mkLiteral ''"JetBrains Mono Nerd Font Mono 14", "Twemoji Medium 14", "Noto Color Emoji Medium 14"'';
       "terminal" = "kitty";
+      "show-icons" = true;
+      "icon-theme" = "candy-icons";
     };
   };
 }

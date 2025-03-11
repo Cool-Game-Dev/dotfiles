@@ -6,5 +6,6 @@
   xdg.desktopEntries."TagStudio" = {
     exec = "tagstudio";
     name = "TagStudio";
+    icon = "tagstudio";
   };
 }
