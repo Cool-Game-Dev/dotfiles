@@ -7,7 +7,7 @@
     stable.url = "nixpkgs/nixos-24.11";
 
     activate-linux.url = "github:MrGlockenspiel/activate-linux";
-    
+
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -16,6 +16,11 @@
     hyprland-qtutils = {
       url = "github:hyprwm/hyprland-qtutils";
       inputs.hyprland.follows = "hyprland";
+    };
+
+    git-hooks = {
+      url = "github:cachix/git-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
@@ -50,6 +55,13 @@
       stable = (import stable { system = systemSettings.system; });
 
     in {
+      perSystem = {
+        checks.pre-commit = inputs.git-hooks.lib.${systemSettings.system}.run {
+          src = ./.;
+          hooks = { nixfmt-rfc-style.enable = true; };
+        };
+        formatter.x86_64-linux= pkgs.nixfmt-rfc-style;
+      };
       nixosConfigurations = {
         "${systemSettings.hostName}" = lib.nixosSystem {
           system = systemSettings.system;
