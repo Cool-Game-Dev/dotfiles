@@ -1,4 +1,10 @@
-{ config, pkgs, userSettings, vauxhall, ... }:
+{
+  config,
+  pkgs,
+  userSettings,
+  vauxhall,
+  ...
+}:
 
 {
   programs.hyprlock = {
@@ -14,42 +20,45 @@
       };
 
       # BACKGROUND
-      background = [{
-        monitor = "";
-        #path = screenshot
-        path = "~/.dotfiles/wallpapers/stars.jpg";
-        #color = $background
-        blur_size = 5;
-        blur_passes = 2;
-        contrast = 1;
-        brightness = 0.5;
-        vibrancy = 0.2;
-        vibrancy_darkness = 0.2;
-      }];
+      background = [
+        {
+          monitor = "";
+          #path = screenshot
+          path = "~/.dotfiles/wallpapers/stars.jpg";
+          #color = $background
+          blur_size = 5;
+          blur_passes = 2;
+          contrast = 1;
+          brightness = 0.5;
+          vibrancy = 0.2;
+          vibrancy_darkness = 0.2;
+        }
+      ];
 
       # INPUT FIELD
-      input-field = [{
-        monitor = "";
-        size = "250, 60";
-        outline_thickness = 2;
-        dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
-        dots_spacing = 0.35; # Scale of dots' absolute size, 0.0 - 1.0
-        dots_center = true;
-        outer_color = "rgb(${vauxhall.background.alpha})";
-        inner_color = "rgb(${vauxhall.background.alpha})";
-        font_color = "rgb(${vauxhall.cyan.alpha})";
-        fade_on_empty = false;
-        rounding = -1;
-        placeholder_text =
-          "<span foreground='#${vauxhall.blue.hex}'><i>Logged in as</i><span foreground='#${vauxhall.violet.hex}'> <b>${userSettings.name}</b></span></span>";
-        loading_color = "rgb(${vauxhall.mint.alpha})";
-        fail_color = "rgb(${vauxhall.yellow.alpha})";
-        fail_text = "<i>$FAIL <b>$ATTEMPTS</b></i>";
-        hide_input = false;
-        position = "0, -200";
-        halign = "center";
-        valign = "center";
-      }];
+      input-field = [
+        {
+          monitor = "";
+          size = "250, 60";
+          outline_thickness = 2;
+          dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
+          dots_spacing = 0.35; # Scale of dots' absolute size, 0.0 - 1.0
+          dots_center = true;
+          outer_color = "rgb(${vauxhall.background.alpha})";
+          inner_color = "rgb(${vauxhall.background.alpha})";
+          font_color = "rgb(${vauxhall.cyan.alpha})";
+          fade_on_empty = false;
+          rounding = -1;
+          placeholder_text = "<span foreground='#${vauxhall.blue.hex}'><i>Logged in as</i><span foreground='#${vauxhall.violet.hex}'> <b>${userSettings.name}</b></span></span>";
+          loading_color = "rgb(${vauxhall.mint.alpha})";
+          fail_color = "rgb(${vauxhall.yellow.alpha})";
+          fail_text = "<i>$FAIL <b>$ATTEMPTS</b></i>";
+          hide_input = false;
+          position = "0, -200";
+          halign = "center";
+          valign = "center";
+        }
+      ];
       # DATE
       label = [
         {

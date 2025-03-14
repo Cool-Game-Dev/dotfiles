@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./aseprite.nix ./inkscape.nix ];
+  imports = [
+    ./aseprite.nix
+    ./inkscape.nix
+  ];
 }

@@ -1,4 +1,5 @@
-{ pkgs, systemSettings, ... }@inputs: {
+{ pkgs, systemSettings, ... }@inputs:
+{
   imports = [
     ./hyprland.nix
     ./hyprlock.nix
@@ -21,7 +22,6 @@
 
   services.cliphist.enable = true;
 
-  systemd.user.targets.hyprland-session.Unit.Wants =
-    [ "xdg-desktop-autostart.target" ];
+  systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
 
 }

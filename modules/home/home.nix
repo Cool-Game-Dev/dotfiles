@@ -1,4 +1,9 @@
-{ config, pkgs, userSettings, ... }@inputs:
+{
+  config,
+  pkgs,
+  userSettings,
+  ...
+}@inputs:
 
 {
   home = {
@@ -7,7 +12,9 @@
 
     packages = with pkgs; [ unzip ];
 
-    sessionVariables = { EDITOR = "micro"; };
+    sessionVariables = {
+      EDITOR = "micro";
+    };
 
     # Just don't change unless absolutly necessary
     stateVersion = "24.11"; # Please read the comment before changing.

@@ -1,4 +1,9 @@
-{ config, pkgs, userSettings, ... }:
+{
+  config,
+  pkgs,
+  userSettings,
+  ...
+}:
 
 {
   users = {
@@ -7,9 +12,16 @@
     users."${userSettings.username}" = {
       isNormalUser = true;
       group = "${userSettings.username}";
-      extraGroups = [ "wheel" "video" ];
+      extraGroups = [
+        "wheel"
+        "video"
+      ];
     };
 
-    groups = { "${userSettings.username}" = { gid = 1000; }; };
+    groups = {
+      "${userSettings.username}" = {
+        gid = 1000;
+      };
+    };
   };
 }

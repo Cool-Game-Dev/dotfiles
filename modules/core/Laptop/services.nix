@@ -1,7 +1,15 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  environment.systemPackages = [ pkgs.greetd.greetd pkgs.greetd.tuigreet ];
+  environment.systemPackages = [
+    pkgs.greetd.greetd
+    pkgs.greetd.tuigreet
+  ];
 
   services = {
     gvfs.enable = true;
@@ -24,7 +32,9 @@
       pulse.enable = true;
     };
 
-    geoclue2 = { enable = true; };
+    geoclue2 = {
+      enable = true;
+    };
 
     clamav = {
       daemon.enable = true;
@@ -35,8 +45,7 @@
       enable = true;
       settings = {
         default_session = {
-          command =
-            "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland --theme='border=cyan;text=blue;prompt=blue;time=cyan;action=blue;button=yellow;container=black;input=magenta'";
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland --theme='border=cyan;text=blue;prompt=blue;time=cyan;action=blue;button=yellow;container=black;input=magenta'";
         };
       };
     };

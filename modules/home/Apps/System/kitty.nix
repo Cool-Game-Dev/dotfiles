@@ -1,4 +1,9 @@
-{ config, pkgs, vauxhall, ... }:
+{
+  config,
+  pkgs,
+  vauxhall,
+  ...
+}:
 
 {
   programs.kitty = {
@@ -15,7 +20,7 @@
       font_size = 9.0;
       disable_ligatures = "never";
 
-      # Cursor 
+      # Cursor
       cursor = "none";
       cursor_shape = "block";
       cursor_shape_unfocused = "hollow";

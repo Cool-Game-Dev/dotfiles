@@ -1,7 +1,9 @@
 { config, pkgs, ... }:
 
-let inherit (config.lib.formats.rasi) mkLiteral;
-in {
+let
+  inherit (config.lib.formats.rasi) mkLiteral;
+in
+{
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
@@ -59,7 +61,9 @@ in {
         padding = mkLiteral "1px";
       };
 
-      "#textbox" = { text-color = mkLiteral "@foreground"; };
+      "#textbox" = {
+        text-color = mkLiteral "@foreground";
+      };
 
       "#listview" = {
         fixed-height = mkLiteral "0";
@@ -161,7 +165,12 @@ in {
       };
 
       "#inputbar" = {
-        children = [ "prompt" "textbox-prompt-colon" "entry" "case-indicator" ];
+        children = [
+          "prompt"
+          "textbox-prompt-colon"
+          "entry"
+          "case-indicator"
+        ];
       };
 
       "#textbox-prompt-colon" = {
@@ -174,7 +183,8 @@ in {
 
     extraConfig = {
       "modes" = "window,drun,run,ssh";
-      "font" = mkLiteral ''"JetBrains Mono Nerd Font Mono 14", "Twemoji Medium 14", "Noto Color Emoji Medium 14"'';
+      "font" =
+        mkLiteral ''"JetBrains Mono Nerd Font Mono 14", "Twemoji Medium 14", "Noto Color Emoji Medium 14"'';
       "terminal" = "kitty";
       "show-icons" = true;
       "icon-theme" = "candy-icons";

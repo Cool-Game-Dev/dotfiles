@@ -1,15 +1,21 @@
 { config, pkgs, ... }:
 
 {
-  home.packages =
-    [ pkgs.xdg-desktop-portal pkgs.kdePackages.xdg-desktop-portal-kde ];
+  home.packages = [
+    pkgs.xdg-desktop-portal
+    pkgs.kdePackages.xdg-desktop-portal-kde
+  ];
 
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
     xdgOpenUsePortal = true;
 
-    config = { common = { default = [ "kde" ]; }; };
+    config = {
+      common = {
+        default = [ "kde" ];
+      };
+    };
   };
   xdg = {
     enable = true;

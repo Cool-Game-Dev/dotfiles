@@ -1,4 +1,10 @@
-{ config, inputs, pkgs, vauxhall, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  vauxhall,
+  ...
+}:
 
 {
   wayland.windowManager.hyprland = {
@@ -23,21 +29,20 @@
         "activate-linux -t 'Activate NixOS' -m 'Go to Dotfiles to activate NixOS' -s 0.8208 --daemonize" # The scale is the smallest it can be without glitching
       ];
 
-     plugin = {
-       dynamic-cursors = {
-        enabled = true;
-        mode = "tilt";
-        tilt.limit = 2500;
-        shake.enabled = false;
-       };
+      plugin = {
+        dynamic-cursors = {
+          enabled = true;
+          mode = "tilt";
+          tilt.limit = 2500;
+          shake.enabled = false;
+        };
       };
 
       input = {
         kb_layout = "us";
         kb_variant = "";
         kb_model = "";
-        kb_options =
-          "compose:ralt"; # allows typing letters with accent marks (ex é) by "composing" other symbols (ex e and ')
+        kb_options = "compose:ralt"; # allows typing letters with accent marks (ex é) by "composing" other symbols (ex e and ')
         kb_rules = "";
         follow_mouse = 1;
 
@@ -67,7 +72,9 @@
       };
 
       # https://wiki.hyprland.org/Configuring/Variables/#gestures
-      gestures = { workspace_swipe = true; };
+      gestures = {
+        workspace_swipe = true;
+      };
 
       # https://wiki.hyprland.org/Configuring/Variables/#general
       general = {
@@ -89,14 +96,15 @@
       };
 
       dwindle = {
-        pseudotile =
-          true; # Master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+        pseudotile = true; # Master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
         preserve_split = true; # You probably want this
         smart_split = true;
       };
 
       # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
-      master = { new_status = "master"; };
+      master = {
+        new_status = "master";
+      };
 
       decoration = {
         rounding = 10;
@@ -300,7 +308,10 @@
       ];
 
       # Persist the shell and browser workspaces
-      workspace = [ "1, persistent:1" "2, persistent:1" ];
+      workspace = [
+        "1, persistent:1"
+        "2, persistent:1"
+      ];
     };
 
     extraConfig = ''

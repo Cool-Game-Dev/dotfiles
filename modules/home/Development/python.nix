@@ -1,5 +1,12 @@
 { config, pkgs, ... }:
 
-let pythonPackages = with pkgs.python312Packages; [ python pip ];
+let
+  pythonPackages = with pkgs.python312Packages; [
+    python
+    pip
+  ];
 
-in { home.packages = pythonPackages; }
+in
+{
+  home.packages = pythonPackages;
+}

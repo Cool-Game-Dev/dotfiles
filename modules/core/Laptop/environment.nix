@@ -1,4 +1,9 @@
-{ config, pkgs, vauxhall, ... }:
+{
+  config,
+  pkgs,
+  vauxhall,
+  ...
+}:
 
 {
   environment = {

@@ -1,8 +1,16 @@
-{ config, pkgs, userSettings, ... }:
+{
+  config,
+  pkgs,
+  userSettings,
+  ...
+}:
 
 {
-  home.packages =
-    [ pkgs.zsh-fast-syntax-highlighting pkgs.zsh-autocomplete pkgs.thefuck ];
+  home.packages = [
+    pkgs.zsh-fast-syntax-highlighting
+    pkgs.zsh-autocomplete
+    pkgs.thefuck
+  ];
   programs.zsh = {
     enable = true;
     enableCompletion = true;

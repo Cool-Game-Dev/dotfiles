@@ -5,10 +5,9 @@
 
   programs.tmux = {
     enable = true;
-    plugins = with pkgs.tmuxPlugins;
-      [
-        # tmux-resurrect
-      ];
+    plugins = with pkgs.tmuxPlugins; [
+      # tmux-resurrect
+    ];
     prefix = "C-a";
   };
 }

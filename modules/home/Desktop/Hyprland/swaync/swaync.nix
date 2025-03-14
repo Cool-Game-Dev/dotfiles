@@ -3,5 +3,7 @@
 {
   home.packages = [ pkgs.swaynotificationcenter ];
 
-  services.swaync = { style = ./style.css; };
+  services.swaync = {
+    style = ./style.css;
+  };
 }

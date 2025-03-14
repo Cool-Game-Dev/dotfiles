@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  home.packages = [ pkgs.nil pkgs.nixfmt-rfc-style ];
+  home.packages = [
+    pkgs.nil
+    pkgs.nixfmt-rfc-style
+  ];
 }

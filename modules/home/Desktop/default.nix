@@ -1,5 +1,13 @@
-{ inputs, userSettings, zen-browser, ... }:
+{
+  inputs,
+  userSettings,
+  zen-browser,
+  ...
+}:
 
 {
-  imports = [ ./Hyprland ./fonts.nix ];
+  imports = [
+    ./Hyprland
+    ./fonts.nix
+  ];
 }

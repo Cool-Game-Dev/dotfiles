@@ -1,4 +1,9 @@
-{ inputs, username, zen-browser, ... }:
+{
+  inputs,
+  username,
+  zen-browser,
+  ...
+}:
 
 {
   imports = [

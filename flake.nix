@@ -28,7 +28,14 @@
     tagstudio.url = "github:TagStudioDev/TagStudio/";
   };
 
-  outputs = { self, nixpkgs, home-manager, zen-browser, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      zen-browser,
+      ...
+    }@inputs:
     let
       lib = inputs.nixpkgs.lib;
 
@@ -37,12 +44,13 @@
         hostName = "Hydrus";
         hostType = "laptop";
 
-        modulePath = if systemSettings.hostType == "laptop" then
-          ./modules/core/Laptop
-        else if systemSettings.hostType == "homelab" then
-          ./modules/core/Homelab
-        else
-          throw "Invalid hostType: ${systemSettings.hostType}";
+        modulePath =
+          if systemSettings.hostType == "laptop" then
+            ./modules/core/Laptop
+          else if systemSettings.hostType == "homelab" then
+            ./modules/core/Homelab
+          else
+            throw "Invalid hostType: ${systemSettings.hostType}";
       };
 
       userSettings = {
@@ -54,14 +62,18 @@
       pkgs = (import nixpkgs { system = systemSettings.system; });
       stable = (import stable { system = systemSettings.system; });
 
-    in {
-      perSystem = {
-        checks.pre-commit = inputs.git-hooks.lib.${systemSettings.system}.run {
-          src = ./.;
-          hooks = { nixfmt-rfc-style.enable = true; };
+    in
+    {
+
+      checks.pre-commit = inputs.git-hooks.lib.${systemSettings.system}.run {
+        src = ./.;
+        hooks = {
+          nixfmt-rfc-style.enable = true;
         };
-        formatter.x86_64-linux= pkgs.nixfmt-rfc-style;
       };
+
+      formatter.${systemSettings.system} = pkgs.nixfmt-rfc-style;
+
       nixosConfigurations = {
         "${systemSettings.hostName}" = lib.nixosSystem {
           system = systemSettings.system;

@@ -1,5 +1,14 @@
-{ config, pkgs, zen-browser, ... }:
+{
+  config,
+  pkgs,
+  zen-browser,
+  ...
+}:
 
 {
-  imports = [ ./godot.nix ./jetbrains-toolbox.nix ./vscode.nix ];
+  imports = [
+    ./godot.nix
+    ./jetbrains-toolbox.nix
+    ./vscode.nix
+  ];
 }
