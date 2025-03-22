@@ -19,20 +19,35 @@
     alpha = "e3365e";
     rgb = "rgb(227, 54, 94)";
   };
+  red = {
+    hex = "#f2525f";
+    alpha = "f2525f";
+    rgb = "rgb(242, 82, 95)";
+  };
   orange = {
     hex = "#fa9f50";
     alpha = "fa9f50";
     rgb = "rgb(250, 159, 80)";
   };
   yellow = {
-    hex = "#ffd85e";
-    alpha = "ffd85e";
-    rgb = "rgb(255, 216, 94)";
+    hex = "#ffd63d";
+    alpha = "ffd63d";
+    rgb = "rgb(255, 214, 61)";
+  };
+  lightYellow = {
+    hex = "#ffe173";
+    alpha = "ffe173";
+    rgb = "rgb(255, 225, 115)";
   };
   mint = {
     hex = "#52eea3";
     alpha = "52eea3";
     rgb = "rgb(82, 238, 163)";
+  };
+  green = {
+    hex = "#81ff76";
+    alpha = "81ff76";
+    rgb = "rgb(129, 255, 118)";
   };
   cyan = {
     hex = "#51e1e9";

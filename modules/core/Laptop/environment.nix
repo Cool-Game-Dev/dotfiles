@@ -14,22 +14,22 @@
 
   console = {
     colors = [
-      "${vauxhall.background.alpha}"
-      "${vauxhall.hotRed.alpha}"
-      "${vauxhall.mint.alpha}"
-      "${vauxhall.yellow.alpha}"
-      "${vauxhall.blue.alpha}"
-      "${vauxhall.purple.alpha}"
-      "${vauxhall.cyan.alpha}"
-      "${vauxhall.text.alpha}"
-      "767676"
-      "e74856"
-      "16c60c"
-      "f9f1a5"
-      "1e6eeb"
-      "e54f9b"
-      "${vauxhall.coolCyan.alpha}"
-      "f2f2f2"
+      vauxhall.background.alpha
+      vauxhall.hotRed.alpha
+      vauxhall.green.alpha
+      vauxhall.yellow.alpha
+      vauxhall.blue.alpha
+      vauxhall.purple.alpha
+      vauxhall.cyan.alpha
+      vauxhall.text.alpha
+      vauxhall.gray.alpha
+      vauxhall.red.alpha
+      vauxhall.mint.alpha
+      vauxhall.lightYellow.alpha
+      vauxhall.cyan.alpha
+      vauxhall.magenta.alpha
+      vauxhall.coolCyan.alpha
+      vauxhall.white.alpha
     ];
     font = "Lat2-Terminus16";
     keyMap = "us";

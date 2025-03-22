@@ -57,15 +57,15 @@
 
       # red
       color1 = vauxhall.hotRed.hex;
-      color9 = "#e74856";
+      color9 = vauxhall.red.hex;
 
       # green
-      color2 = vauxhall.mint.hex;
-      color10 = "#16c60c";
+      color2 = vauxhall.green.hex;
+      color10 = vauxhall.mint.hex;
 
       # yellow
       color3 = vauxhall.yellow.hex;
-      color11 = "#f9f1a5";
+      color11 = vauxhall.lightYellow.hex;
 
       # blue
       color4 = vauxhall.blue.hex;
