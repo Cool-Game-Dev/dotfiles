@@ -51,7 +51,7 @@
         disabled = false;
         style = "fg:bold black bg:purple";
         format = "[$symbol $branch(:$remote_branch)]($style)";
-        symbol = "󰘬 ";
+        symbol = "󰘬";
       };
 
       dotnet = {
