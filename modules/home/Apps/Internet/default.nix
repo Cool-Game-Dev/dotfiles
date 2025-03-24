@@ -8,6 +8,7 @@
 {
   imports = [
     ./freetube.nix
+    ./kde-connect.nix
     ./zen-browser.nix
   ];
 }
