@@ -27,6 +27,7 @@
         "systemctl --user start hyprpolkitagent"
         "hypridle"
         "activate-linux -t 'Activate NixOS' -m 'Go to Dotfiles to activate NixOS' -s 0.8208 --daemonize" # The scale is the smallest it can be without glitching
+        "kdeconnectd" # starts the KDE daemon
       ];
 
       plugin = {
