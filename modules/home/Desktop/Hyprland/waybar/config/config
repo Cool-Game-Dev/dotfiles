@@ -94,7 +94,7 @@
 
    	"cpu": {
 	   	"states": {
-	   		"idle": 1,
+	   		"idle": -1,
 	   		"low": 10,
 	   		"medium":30,
 	   		"high": 50,
@@ -107,7 +107,7 @@
 
    	"memory": {
 	   	"states": {
-	   		"idle": 1,
+	   		"idle": -1,
 	   		"low": 10,
 	   		"medium":30,
 	   		"high": 50,
@@ -120,7 +120,7 @@
 
    	"disk": {
    		"states": {
-	   		"empty": 1,
+	   		"empty": -1,
 	   		"low": 10,
 	   		"medium":30,
 	   		"high": 50,
