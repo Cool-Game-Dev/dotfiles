@@ -22,10 +22,10 @@
     pointerCursor = {
       name = "LyraP-cursors";
       package = pkgs.lyra-cursors;
-      size = 24;
+      size = 36;
       gtk.enable = true;
       hyprcursor.enable = true;
-      hyprcursor.size = 24;
+      hyprcursor.size = 36;
     };
   };
 
