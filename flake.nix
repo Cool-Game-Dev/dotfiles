@@ -56,8 +56,8 @@
       };
       vauxhall = import ./Vauxhall.nix;
 
-
-      stable = (import stable { system = systemSettings.system; });
+      pkgs = forAllSystems (system: import nixpkgs { inherit system; } );
+      stable = forAllSystems (system: import stable { inherit system; } );
 
       mkHost = host: {
         ${host} =
@@ -94,13 +94,6 @@
           nixfmt-rfc-style.enable = true;
         };
       };
-
-      packages = forAllSystems (
-        system:
-          import nixpkgs {
-            inherit system;
-          }
-      );
 
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
 
