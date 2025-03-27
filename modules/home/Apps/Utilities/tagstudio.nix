@@ -1,5 +1,5 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  home.packages = [ (inputs.tagstudio.packages.${pkgs.system}.tagstudio) ];
+  home.packages = [ pkgs.tagstudio ];
 }

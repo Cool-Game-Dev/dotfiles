@@ -15,7 +15,7 @@
 
     hyprland-qtutils = {
       url = "github:hyprwm/hyprland-qtutils";
-      inputs.hyprland.follows = "hyprland";
+      inputs.hyprland.follows = "nixpkgs";
     };
 
     git-hooks = {
@@ -32,25 +32,21 @@
     {
       self,
       nixpkgs,
-      home-manager,
-      zen-browser,
       ...
     }@inputs:
     let
-      lib = inputs.nixpkgs.lib;
+      inherit (nixpkgs) lib;
+      inherit (self) outputs;
+
+      forAllSystems = nixpkgs.lib.genAttrs [
+        "x86_64-linux"
+        # "aarch64-linux"
+      ];
 
       systemSettings = {
         system = "x86_64-linux";
         hostName = "Hydrus";
         hostType = "laptop";
-
-        modulePath =
-          if systemSettings.hostType == "laptop" then
-            ./modules/core/Laptop
-          else if systemSettings.hostType == "homelab" then
-            ./modules/core/Homelab
-          else
-            throw "Invalid hostType: ${systemSettings.hostType}";
       };
 
       userSettings = {
@@ -59,8 +55,35 @@
         dotfilesDir = "/home/${userSettings.username}/.dotfiles";
       };
       vauxhall = import ./Vauxhall.nix;
-      pkgs = (import nixpkgs { system = systemSettings.system; });
+
+
       stable = (import stable { system = systemSettings.system; });
+
+      mkHost = host: {
+        ${host} =
+          let
+            func = lib.nixosSystem;
+            systemFunc = func;
+          in
+          systemFunc {
+            specialArgs = {
+              inherit
+                inputs
+                outputs
+                lib
+                vauxhall
+                ;
+            };
+            modules = [
+              ./hosts/nixos/${host}
+              ./modules
+            ];
+          };
+      };
+
+      mkHostConfigs =
+        hosts: lib.foldl (acc: set: acc // set) { } (lib.map (host: mkHost host) hosts);
+      readHosts = folder: lib.attrNames (builtins.readDir ./hosts/${folder});
 
     in
     {
@@ -72,32 +95,15 @@
         };
       };
 
-      formatter.${systemSettings.system} = pkgs.nixfmt-rfc-style;
+      packages = forAllSystems (
+        system:
+          import nixpkgs {
+            inherit system;
+          }
+      );
 
-      nixosConfigurations = {
-        "${systemSettings.hostName}" = lib.nixosSystem {
-          system = systemSettings.system;
-          modules = [ systemSettings.modulePath ];
-          specialArgs = {
-            inherit systemSettings;
-            inherit userSettings;
-            inherit vauxhall;
-          };
-        };
-      };
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
 
-      homeConfigurations = {
-        "${userSettings.username}" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ./modules/home ];
-          extraSpecialArgs = {
-            inherit inputs;
-            inherit systemSettings;
-            inherit userSettings;
-            inherit vauxhall;
-            inherit zen-browser;
-          };
-        };
-      };
+      nixosConfigurations = readHosts "nixos";
     };
 }

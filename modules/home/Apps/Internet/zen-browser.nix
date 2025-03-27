@@ -1,5 +1,5 @@
-{ systemSettings, ... }@inputs:
+{ pkgs, ... }:
 
 {
-  home.packages = [ inputs.zen-browser.packages."${systemSettings.system}".beta ];
+  home.packages = [ pkgs.zen-browser ];
 }
