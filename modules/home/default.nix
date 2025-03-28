@@ -13,5 +13,6 @@
     ./Input/compose.nix
     ./Development
     ./home.nix
+    ./host-spec.nix
   ];
 }
