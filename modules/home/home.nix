@@ -19,14 +19,6 @@
     # Just don't change unless absolutly necessary
     stateVersion = "24.11"; # Please read the comment before changing.
 
-    pointerCursor = {
-      name = "LyraP-cursors";
-      package = pkgs.lyra-cursors;
-      size = 36;
-      gtk.enable = true;
-      hyprcursor.enable = true;
-      hyprcursor.size = 36;
-    };
   };
 
   programs.home-manager.enable = true;
