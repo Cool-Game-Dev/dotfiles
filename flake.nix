@@ -97,6 +97,6 @@
 
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
 
-      nixosConfigurations = readHosts "nixos";
+      nixosConfigurations = readHosts "nixos" |> mkHostConfigs;
     };
 }
