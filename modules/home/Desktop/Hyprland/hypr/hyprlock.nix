@@ -1,6 +1,6 @@
 {
   config,
-  pkgs,
+  lib,
   userSettings,
   vauxhall,
   ...
@@ -8,12 +8,12 @@
 
 let 
   cfg' = config.elysium.desktops.hyprland;
-  cfg = cfg`.hyprlock;
+  cfg = cfg'.hyprlock;
 in
 {
   options.elysium.desktops.hyprland.hyprlock.enable = lib.mkEnableOption "Hyprlock" // {
-    default = cfg'.enable
-  }
+    default = cfg'.enable;
+  };
 
   config = lib.mkIf (cfg'.enable && cfg.enable) {
     programs.hyprlock = {

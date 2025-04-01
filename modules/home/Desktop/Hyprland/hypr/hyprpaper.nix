@@ -6,9 +6,9 @@
 }:
 
 let 
-  cfg' = config.elysium.desktops.hyprpaper
-  cfg = cfg'.hyprpaper
-
+  cfg' = config.elysium.desktops.hyprpaper;
+  cfg = cfg'.hyprpaper;
+in
 {
   options.elysium.desktops.hyprland.hyprpaper.enable = lib.mkEnableOption "Hyprpaper" // {
     default = cfg'.enable;
@@ -23,5 +23,5 @@ let
         wallpaper = [ ",~/.dotfiles/wallpapers/blacklotus-nix.png" ];
       };
     };
-  }
+  };
 }

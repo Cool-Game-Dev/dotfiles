@@ -8,10 +8,11 @@
 let 
   cfg' = config.elysium.desktops.hyprland;
   cfg = cfg'.hypridle;
+in
 {
   options.elysium.desktops.hyprland.hypridle.enable = lib.mkEnableOption "Hypridle" // {
     default = cfg'.enable;
-  }
+  };
 
   config = lib.mkIf (cfg'.enable && cfg.enable) {
     home.packages = [ pkgs.hypridle ];

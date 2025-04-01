@@ -1,8 +1,8 @@
 { config, lib, pkgs, ... }:
 
 let 
-  cfg' = config.elysium.desktops.hyprland
-  cfg = cfg'.hyprshot
+  cfg' = config.elysium.desktops.hyprland;
+  cfg = cfg'.hyprshot;
 in
 {
   options.elysium.desktops.hyprland.hyprshot.enable = lib.mkEnableOption "Hyprshot" // {

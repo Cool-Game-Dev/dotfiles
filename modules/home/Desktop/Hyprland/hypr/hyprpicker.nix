@@ -1,8 +1,8 @@
 { config, lib, pkgs, ... }:
 
 let 
-  cfg' = config.elysium.desktops.hyprland
-  cfg = cfg'.hyprpicker
+  cfg' = config.elysium.desktops.hyprland;
+  cfg = cfg'.hyprpicker;
 in
 {
   options.elysium.desktops.hyprland.hyprpicker.enable = lib.mkEnableOption "Hyprpicker" // {
