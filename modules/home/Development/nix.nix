@@ -2,7 +2,7 @@
 
 {
   home.packages = [
-    pkgs.nil
+    pkgs.nixd
     pkgs.nixfmt-rfc-style
     pkgs.manix
   ];
