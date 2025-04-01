@@ -1,5 +1,15 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
+let 
+  cfg' = config.elysium.desktops.hyprland
+  cfg = cfg'.hyprshot
+in
 {
-  home.packages = [ pkgs.hyprshot ];
+  options.elysium.desktops.hyprland.hyprshot.enable = lib.mkEnableOption "Hyprshot" // {
+    default = cfg'.enable;
+  };
+
+  config = lib.mkIf (cfg'.enable && cfg.enable) {
+    home.packages = [ pkgs.hyprshot ];
+  };
 }
