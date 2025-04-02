@@ -10,7 +10,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     plugins = [
-      # pkgs.hyprlandPlugins.hypr-dynamic-cursors Build fail? Fix later
+      pkgs.hyprlandPlugins.hypr-dynamic-cursors
     ];
 
     settings = {
