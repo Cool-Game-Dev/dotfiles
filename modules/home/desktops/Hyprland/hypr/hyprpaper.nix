@@ -6,7 +6,8 @@
 }:
 
 let 
-  cfg' = config.elysium.desktops.hyprpaper;
+  cfg'' = config.elysium.desktops;
+  cfg' = cfg''.desktops.hyprland;
   cfg = cfg'.hyprpaper;
 in
 {
@@ -14,7 +15,7 @@ in
     default = cfg'.enable;
   };
 
-  config = lib.mkIf (cfg'.enable && cfg.enable) {
+  config = lib.mkIf (cfg'' && cfg'.enable && cfg.enable) {
     home.packages = [ pkgs.hyprpaper ];
     services.hyprpaper = {
       enable = true;

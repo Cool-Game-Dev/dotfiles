@@ -2,7 +2,7 @@
 
 let 
   cfg' = config.elysium.browsers;
-  cfg = cfg'.zen-browser;
+  cfg = cfg'.zen;
 in
 {
   options.dotfyls.browsers.browsers.zen-browser.enable = lib.mkEnableOption "Zen Browser";

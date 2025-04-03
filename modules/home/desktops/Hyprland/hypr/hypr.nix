@@ -17,7 +17,6 @@
     pkgs.glib
     pkgs.direnv
     pkgs.pamixer
-    pkgs.activate-linux
   ];
 
   services.cliphist.enable = true;

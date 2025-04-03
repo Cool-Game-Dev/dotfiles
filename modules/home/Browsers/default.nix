@@ -4,7 +4,7 @@ let
   cfg = config.elysium.browsers;
 
   desktopFiles = {
-    zen-browser = "zen.desktop";
+    zen = "zen.desktop";
     firefox = "firefox.desktop";
   };
 

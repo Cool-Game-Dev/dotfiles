@@ -1,7 +1,8 @@
 { config, lib, pkgs, ... }:
 
 let 
-  cfg' = config.elysium.desktops.hyprland;
+  cfg'' = config.elysium.desktops;
+  cfg' = cfg''.desktops.hyprland;
   cfg = cfg'.hyprshot;
 in
 {
@@ -9,7 +10,7 @@ in
     default = cfg'.enable;
   };
 
-  config = lib.mkIf (cfg'.enable && cfg.enable) {
+  config = lib.mkIf (cfg''.enable && cfg'.enable && cfg.enable) {
     home.packages = [ pkgs.hyprshot ];
   };
 }
