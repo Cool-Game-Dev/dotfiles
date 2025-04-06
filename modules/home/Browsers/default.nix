@@ -12,7 +12,7 @@ let
 
   otherDesktopFiles = lib.mapAttrsToList (name: _: desktopFiles.${name}) (
     lib.filterAttrs (name: browser: browser.enable && name != cfg.default) cfg.browsers
-  );
+  );dotfyls
 
 in
 {
@@ -20,7 +20,7 @@ in
     ./zen-browser
     ./firefox
 
-    (lib.mkSelectorModule [ "browsers" ] {
+    (lib.mkSelectorModule [ "elysium" "browsers" ] {
       name = "default";
       default = "zen-browser";
       example = "firefox";
@@ -29,7 +29,7 @@ in
   ];
 
   options.browsers.enable = lib.mkEnableOption "browsers" // {
-    default =  config.dotfyls.desktops.enable; 
+    default =  config.elysium.desktops.enable; 
   };
 
   config = lib.mkIf cfg.enable {

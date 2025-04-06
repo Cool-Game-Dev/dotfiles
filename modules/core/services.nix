@@ -5,6 +5,7 @@
   ...
 }:
 
+
 {
   environment.systemPackages = [
     pkgs.greetd.greetd
@@ -39,15 +40,6 @@
     clamav = {
       daemon.enable = true;
       scanner.enable = true;
-    };
-
-    greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland --theme='border=cyan;text=blue;prompt=blue;time=cyan;action=blue;button=yellow;container=black;input=magenta'";
-        };
-      };
     };
 
     libinput.enable = true;

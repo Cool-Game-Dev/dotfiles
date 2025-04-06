@@ -1,0 +1,5 @@
+{ hostSpec, ... }:
+
+{
+  hardware = hostSpec.hardware;
+}

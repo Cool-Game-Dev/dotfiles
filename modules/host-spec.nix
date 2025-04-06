@@ -13,10 +13,9 @@
       description = "The hostname of the host";
     };
 
-    useWindowManager = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "Used to indicate a host that uses a window manager";
+    hardware = lib.mkOption {
+      type = lib.types.attrs;
+      default = { };
     };
   };
 }

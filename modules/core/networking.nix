@@ -1,12 +1,13 @@
-{ config, systemSettings, ... }:
+{ config, ... }:
 
 {
   networking = {
+    hostName = config.hostSpec.hostName;
+
     networkmanager = {
-      enable = true;
-      wifi.scanRandMacAddress = false;
+      enable = config.hostSpec.networkmanager.enable;
+      wifi.scanRandMacAddress = config.hostSpec.networkmanager.scanRandMacAddress;
     };
-    hostName = systemSettings.hostName;
 
     firewall = {
       allowedUDPPortRanges = [

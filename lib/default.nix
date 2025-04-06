@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, ... }@inputs:
 {
   relativeToRoot = lib.path.append ../.;
 
@@ -15,4 +15,12 @@
       )
     |> builtins.attrNames
     |> builtins.map (f: "${path}/${f}");
+
+  anyUserHasOption = optionPathStr: 
+    let
+      path = lib.splitString "." optionPathStr;
+      users = inputs.home-manager.users;
+    in
+      lib.any (userCfg: lib.attrByPath path false userCfg) (lib.attrValues users);
+
 }

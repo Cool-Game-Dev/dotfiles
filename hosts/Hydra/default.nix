@@ -1,0 +1,8 @@
+{ ... }:
+{
+  config.hostSpec = {
+    networking = {
+      
+    };
+  };
+}

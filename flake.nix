@@ -28,75 +28,46 @@
     tagstudio.url = "github:TagStudioDev/TagStudio/";
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      ...
-    }@inputs:
-    let
-      inherit (nixpkgs) lib;
-      inherit (self) outputs;
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  }@inputs:
+  let
+    inherit (self) outputs;
+    lib = nixpkgs.lib.extend (self: super: { custom = import ./lib { inherit (nixpkgs) lib; }; });
 
-      forAllSystems = nixpkgs.lib.genAttrs [
-        "x86_64-linux"
-        # "aarch64-linux"
-      ];
 
-      systemSettings = {
-        system = "x86_64-linux";
-        hostName = "Hydrus";
-        hostType = "laptop";
+    forAllSystems = nixpkgs.lib.genAttrs [
+      "x86_64-linux"
+      # "aarch64-linux"
+    ];
+
+    vauxhall = import ./Vauxhall.nix;
+
+  in
+  {
+
+    checks.pre-commit = forAllSystems(system: inputs.git-hooks.lib.${system}.run {
+      src = ./.;
+      hooks = {
+        nixfmt-rfc-style.enable = true;
       };
+    });
 
-      userSettings = {
-        username = "Coolio";
-        name = "Coolio";
-        dotfilesDir = "/home/${userSettings.username}/.dotfiles";
-      };
-      vauxhall = import ./Vauxhall.nix;
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
 
-      pkgs = forAllSystems (system: import nixpkgs { inherit system; } );
-      stable = forAllSystems (system: import stable { inherit system; } );
-
-      mkHost = host: {
-        ${host} =
-          let
-            func = lib.nixosSystem;
-            systemFunc = func;
-          in
-          systemFunc {
-            specialArgs = {
-              inherit
-                inputs
-                outputs
-                lib
-                vauxhall
-                ;
-            };
-            modules = [
-              ./hosts/nixos/${host}
-              ./modules
-            ];
+    nixosConfigurations = builtins.readDir ./hosts/nixos
+      |> builtins.attrNames
+      |> map (host: {
+        name = host;
+        value = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs lib vauxhall;
           };
-      };
-
-      mkHostConfigs =
-        hosts: lib.foldl (acc: set: acc // set) { } (lib.map (host: mkHost host) hosts);
-      readHosts = folder: lib.attrNames (builtins.readDir ./hosts/${folder});
-
-    in
-    {
-
-      checks.pre-commit = inputs.git-hooks.lib.${systemSettings.system}.run {
-        src = ./.;
-        hooks = {
-          nixfmt-rfc-style.enable = true;
+          modules = [ ./hosts/nixos/${host} ./modules ];
         };
-      };
-
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
-
-      nixosConfigurations = readHosts "nixos" |> mkHostConfigs;
-    };
+      })
+      |> builtins.listToAttrs;
+  };
 }

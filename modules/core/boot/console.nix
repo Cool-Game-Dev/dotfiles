@@ -1,17 +1,6 @@
-{
-  config,
-  pkgs,
-  vauxhall,
-  ...
-}:
+{ vauxhall, ... }:
 
 {
-  environment = {
-    shells = with pkgs; [ zsh ];
-    localBinInPath = true;
-    extraInit = "umask 0077";
-  };
-
   console = {
     colors = [
       vauxhall.background.alpha
@@ -32,8 +21,7 @@
       vauxhall.white.alpha
     ];
     font = "Lat2-Terminus16";
-    keyMap = "us";
+    setupEarly = true;
   };
 
-  i18n.defaultLocale = "en_US.UTF-8";
 }
