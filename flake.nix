@@ -65,7 +65,7 @@
           specialArgs = {
             inherit inputs outputs lib vauxhall;
           };
-          modules = [ ./hosts/nixos/${host} ./modules ];
+          modules = [ ./hosts/nixos/${host} ./modules/core  ./hosts/common ];
         };
       })
       |> builtins.listToAttrs;

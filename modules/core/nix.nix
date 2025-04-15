@@ -33,7 +33,7 @@
 
   nix.gc = {
     automatic = true;
-    dates = "Sat 12:00";
+    dates = "12:00";
   };
 
   nixpkgs.config.permittedInsecurePackages = [ "SDL_ttf-2.0.11" ];

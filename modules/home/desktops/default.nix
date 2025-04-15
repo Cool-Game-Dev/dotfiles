@@ -1,6 +1,6 @@
 {
-  inputs,
-  userSettings,
+  config,
+  lib,
   ...
 }:
 
@@ -11,7 +11,7 @@ in
   imports = [
     ./Hyprland
 
-    (self.lib.mkSelectorModule [ "dotfyls" "desktops" ] {
+    (lib.mkSelectorModule [ "elysium" "desktops" ] {
       name = "default";
       default = "hyprland";
       example = "hyprland";
@@ -26,8 +26,8 @@ in
 
   }
 
-  config = {
+  config = lib.mkIf cfg.enable {
     xdg.portal.xdgOpenUsePortal = true;
-  }
+  };
 
 }

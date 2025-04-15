@@ -1,5 +1,7 @@
 { hostSpec, ... }:
 
 {
-  hardware = hostSpec.hardware;
+  hardware = {
+    bluetooth.enable = hostSpec.bluetooth.enable;
+  };
 }

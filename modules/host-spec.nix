@@ -13,9 +13,27 @@
       description = "The hostname of the host";
     };
 
-    hardware = lib.mkOption {
-      type = lib.types.attrs;
-      default = { };
+    networking = {
+      networkmanager = {
+        enable = lib.mkEnableOption "NetworkManager" // {
+          default = true;
+        };
+
+        scanRandMacAddress = lib.mkEnableOption "NetworkManager" // {
+          default = true;
+        };
+      };
+    };
+
+    hardware = {
+      bluetooth.enable = lib.mkEnableOption "Bluetooth" // {
+        default = !config.hostSpec.isServer;
+      };
+    };
+
+    isServer = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
     };
   };
 }

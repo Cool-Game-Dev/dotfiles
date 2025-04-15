@@ -8,11 +8,9 @@ let
 in
 {
   home-manager = {
-    extraSpecialArgs = { inherit pkgs inputs hostSpec; };
-
     users.${username}.imports = lib.flatten [
       (importWithArgs "home/${username}/${hostName}.nix")
-      (importWithArgs "modules/core")
+      (importWithArgs "modules/home")
     ];
   };
 }

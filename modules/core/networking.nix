@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib,... }:
 
 {
   networking = {
@@ -10,12 +10,11 @@
     };
 
     firewall = {
-      allowedUDPPortRanges = [
-        { # KDE Connect
+      allowedUDPPortRanges = 
+        lib.optional lib.anyUserHasOption "elysium.services.kdeconnect.enable" { 
           from = 1714;
           to = 1764;
-        } 
-      ];
+      };
     };
   };
 }
