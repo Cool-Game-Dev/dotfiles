@@ -2,7 +2,7 @@
 
 {
   boot = {
-
+    binfmt.emulatedSystems = [ "aarch64-linux" ];
     kernelPackages = pkgs.linuxPackages_zen;
     initrd.systemd.enable = true;
 
