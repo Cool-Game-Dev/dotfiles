@@ -1,7 +1,5 @@
 {
-  inputs,
-  username,
-  zen-browser,
+  pkgs,
   ...
 }:
 
@@ -15,4 +13,6 @@
     ./Utilities
     ./kde-apps.nix
   ];
+
+  home.packages = [ pkgs.flashprint ];
 }
