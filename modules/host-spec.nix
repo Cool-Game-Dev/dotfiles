@@ -25,13 +25,12 @@
       };
     };
 
-    hardware = {
-      bluetooth.enable = lib.mkEnableOption "Bluetooth" // {
-        default = !config.hostSpec.isServer;
-      };
+    isServer = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
     };
 
-    isServer = lib.mkOption {
+    isDesktop = lib.mkOption {
       type = lib.types.bool;
       default = false;
     };

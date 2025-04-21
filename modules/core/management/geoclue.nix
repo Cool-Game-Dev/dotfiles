@@ -1,10 +1,10 @@
 { config, lib, hostSpec, ... }:
 
 let 
-  cfg = config.elysium.geoclue;
+  cfg = config.elysium.management.geolocation;
 in
 {
-  options.elysium.geoclue.enable = lib.mkEnableOption "Geoclue" // {
+  options.elysium.geolocation.enable = lib.mkEnableOption "Geolocation" // {
     default = !hostSpec.isServer;
   };
 

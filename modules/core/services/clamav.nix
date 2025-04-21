@@ -1,10 +1,10 @@
 { config, lib, hostSpec, ... }:
 
 let 
-  cfg = config.elysium.clamav;
+  cfg = config.elysium.services.clamav;
 in
 {
-  options.elysium.clamav = { 
+  options.elysium.services.clamav = { 
     daemon = lib.mkEnableOption "ClamAV daemon" // {
       default = hostSpec.isDesktop;
     };
