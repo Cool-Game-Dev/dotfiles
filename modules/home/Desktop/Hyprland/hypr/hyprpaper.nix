@@ -10,8 +10,8 @@
   services.hyprpaper = {
     enable = true;
     settings = {
-      preload = [ "~/.dotfiles/wallpapers/blacklotus-nix.png" ];
-      wallpaper = [ ",~/.dotfiles/wallpapers/blacklotus-nix.png" ];
+      preload = [ "~/.dotfiles/wallpapers/stars.png" ];
+      wallpaper = [ ",~/.dotfiles/wallpapers/stars.png" ];
     };
   };
 }
