@@ -5,16 +5,19 @@ let
 in
 {
   options.elysium.services.clamav = { 
-    daemon = lib.mkEnableOption "ClamAV daemon" // {
+    enable = lib.mkEnableOption "ClamAV" // {
+      default = hostSpec.isDesktop;
+    }; 
+    daemon.enable = lib.mkEnableOption "ClamAV daemon" // {
       default = hostSpec.isDesktop;
     };
 
-    scanner = lib.mkEnableOption "ClamAV scanner" // {
+    scanner.enable = lib.mkEnableOption "ClamAV scanner" // {
       default = true;
     };
   };
 
-  config = {
+  config = lib.mkIf cfg.enable{
     services.clamav = {
       daemon.enable = cfg.daemon.enable;
       scanner.enable = cfg.scanner.enable;

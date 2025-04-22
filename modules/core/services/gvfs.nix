@@ -8,7 +8,7 @@ in
     default = true;
   };
 
-  config = {
-    services.gvsf.enable = cfg.enable;
+  config = lib.mkIf cfg.enable {
+    services.gvsf.enable = true;
   };
 }

@@ -16,7 +16,6 @@
     logind.lidSwitch = "ignore";
 
     openssh.enable = true;
-    tailscale.enable = true;
   };
 
   location.provider = "geoclue2";
