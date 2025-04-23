@@ -8,7 +8,8 @@ in
     default = !hostSpec.isServer;
   };
 
-  config = {
+  config = lib.mkIf cfg.enable {
     services.geoclue2.enable = cfg.enable;
+    location.provider = "geoclue2";
   };
 }

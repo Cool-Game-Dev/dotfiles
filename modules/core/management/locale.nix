@@ -1,4 +1,6 @@
-{ config, lib, ... }: {
+{ config, lib, ... }: 
+
+{
   i18n = {
     defaultLocale = "en_US.UTF-8";
 
@@ -9,7 +11,6 @@
     ] ++ (
       config.i18n.extraLocaleSettings
       |> builtins.removeAttrs [ "LANGUAGE" ]
-      // lib.filterAttrs (_: locale: locale != null) config.hm.home.language
       |> builtins.attrValues
     )
     |> map (locale:

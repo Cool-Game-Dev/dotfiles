@@ -12,5 +12,4 @@
     extraInit = "umask 0077";
   };
 
-  i18n.defaultLocale = "en_US.UTF-8";
 }
