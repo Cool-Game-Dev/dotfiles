@@ -5,6 +5,5 @@
     ./blueman.nix
     ./dolphin.nix
     ./kitty.nix
-    ./protonvpn.nix
   ];
 }

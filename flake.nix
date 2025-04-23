@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
-    stable.url = "nixpkgs/nixos-24.11";
+    nixpkgs-master.url = "nixpkgs/master";
 
     activate-linux.url = "github:MrGlockenspiel/activate-linux";
 
@@ -15,7 +15,7 @@
 
     hyprland-qtutils = {
       url = "github:hyprwm/hyprland-qtutils";
-      inputs.hyprland.follows = "hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     git-hooks = {
@@ -32,6 +32,7 @@
     {
       self,
       nixpkgs,
+      nixpkgs-master,
       home-manager,
       zen-browser,
       ...
@@ -47,7 +48,7 @@
         modulePath =
           if systemSettings.hostType == "laptop" then
             ./modules/core/Laptop
-          else if systemSettings.hostType == "homelab" then
+          else if systemSettings.hostType == "hommasterpkgselab" then
             ./modules/core/Homelab
           else
             throw "Invalid hostType: ${systemSettings.hostType}";
@@ -59,9 +60,8 @@
         dotfilesDir = "/home/${userSettings.username}/.dotfiles";
       };
       vauxhall = import ./Vauxhall.nix;
-      pkgs = (import nixpkgs { system = systemSettings.system; });
-      stable = (import stable { system = systemSettings.system; });
-
+      pkgs = import nixpkgs { system = systemSettings.system; };
+      master = import nixpkgs-master { system = systemSettings.system; };
     in
     {
 
@@ -82,6 +82,7 @@
             inherit systemSettings;
             inherit userSettings;
             inherit vauxhall;
+            inherit master;
           };
         };
       };
@@ -96,6 +97,7 @@
             inherit userSettings;
             inherit vauxhall;
             inherit zen-browser;
+            inherit master;
           };
         };
       };
