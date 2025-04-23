@@ -10,8 +10,8 @@
   services.hyprpaper = {
     enable = true;
     settings = {
-      preload = [ "~/.dotfiles/wallpapers/stars.png" ];
-      wallpaper = [ ",~/.dotfiles/wallpapers/stars.png" ];
+      preload = [ "~/.dotfiles/wallpapers/stars.jpg" ];
+      wallpaper = [ ",~/.dotfiles/wallpapers/stars.jpg" ];
     };
   };
 }
