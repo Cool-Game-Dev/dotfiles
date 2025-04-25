@@ -1,7 +1,7 @@
 { lib, self, ... }@inputs:
 
 {
-   mkStaticPackageOption =
+  mkStaticPackageOption =
     pkg:
     lib.mkOption {
       internal = true;

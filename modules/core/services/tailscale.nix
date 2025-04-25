@@ -1,8 +1,9 @@
 { config, lib, ... }:
 
-let 
+let
   cfg = config.elysium.services.tailscale;
-in {
+in
+{
   options.elysium.services.tailscale.enable = lib.mkEnableOption "Tailscale" // {
     default = true;
   };

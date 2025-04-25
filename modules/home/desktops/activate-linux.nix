@@ -1,6 +1,11 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
-let 
+let
   cfg' = config.elysium.desktops;
   cfg = cfg'.activate-linux;
 in
@@ -9,5 +14,5 @@ in
 
   config = lib.mkIf (cfg'.enable && cfg.enable) {
     home.packages = [ pkgs.activate-linux ];
-  }
+  };
 }

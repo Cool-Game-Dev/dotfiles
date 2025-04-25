@@ -1,6 +1,11 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
-let 
+let
   cfg'' = config.elysium.desktops;
   cfg' = cfg''.rofi;
   cfg = cfg'.bemoji;

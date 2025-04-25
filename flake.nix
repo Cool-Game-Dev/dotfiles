@@ -23,7 +23,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    sops-nix = { 
+    sops-nix = {
       url = "github:/Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -33,47 +33,61 @@
     tagstudio.url = "github:TagStudioDev/TagStudio/";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    sops-nix,
-    ...
-  }@inputs:
-  let
-    inherit (self) outputs;
-    lib = nixpkgs.lib.extend (self: super: { custom = import ./lib { inherit (nixpkgs) lib; }; });
+  outputs =
+    {
+      self,
+      nixpkgs,
+      sops-nix,
+      ...
+    }@inputs:
+    let
+      inherit (self) outputs;
+      lib = nixpkgs.lib.extend (self: super: { custom = import ./lib { inherit (nixpkgs) lib; }; });
 
+      forAllSystems = nixpkgs.lib.genAttrs [
+        "x86_64-linux"
+        # "aarch64-linux"
+      ];
 
-    forAllSystems = nixpkgs.lib.genAttrs [
-      "x86_64-linux"
-      # "aarch64-linux"
-    ];
+      vauxhall = import ./Vauxhall.nix;
 
-    vauxhall = import ./Vauxhall.nix;
+    in
+    {
 
-  in
-  {
-
-    checks.pre-commit = forAllSystems(system: inputs.git-hooks.lib.${system}.run {
-      src = ./.;
-      hooks = {
-        nixfmt-rfc-style.enable = true;
-      };
-    });
-
-    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
-
-    nixosConfigurations = builtins.readDir ./hosts/nixos
-      |> builtins.attrNames
-      |> map (host: {
-        name = host;
-        value = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs outputs lib vauxhall;
+      checks.pre-commit = forAllSystems (
+        system:
+        inputs.git-hooks.lib.${system}.run {
+          src = ./.;
+          hooks = {
+            nixfmt-rfc-style.enable = true;
           };
-          modules = [ ./hosts/nixos/${host} ./modules/core  ./hosts/common sops-nix.nixosModules.sops];
-        };
-      })
-      |> builtins.listToAttrs;
-  };
+        }
+      );
+
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+
+      nixosConfigurations =
+        builtins.readDir ./hosts/nixos
+        |> builtins.attrNames
+        |> map (host: {
+          name = host;
+          value = nixpkgs.lib.nixosSystem {
+            specialArgs = {
+              inherit
+                inputs
+                outputs
+                lib
+                vauxhall
+                ;
+            };
+            modules = [
+              ./hosts/nixos/${host}
+              ./modules/core
+              ./hosts/common
+              sops-nix.nixosModules.sops
+            ];
+          };
+        })
+        |> builtins.listToAttrs;
+    };
 }

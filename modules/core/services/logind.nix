@@ -1,6 +1,11 @@
-{ config, lib, hostSpec, ... }:
+{
+  config,
+  lib,
+  hostSpec,
+  ...
+}:
 
-let 
+let
   logindHandlerType = lib.types.enum [
     "ignore"
     "poweroff"
@@ -24,7 +29,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    services.logind ={
+    services.logind = {
       enable = true;
       lidSwitch = cfg.lidSwitch;
     };

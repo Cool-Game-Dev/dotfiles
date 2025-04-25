@@ -1,12 +1,12 @@
 { config, lib, ... }:
 
-let 
+let
   cfg' = config.elysium.desktops;
   cfg = cfg'.waybar;
-in 
+in
 {
   options.elysium.desktops.waybar.enable = lib.mkEnableOption "Waybar";
-  
+
   config = lib.mkIf (cfg'.enable && cfg.enable) {
     programs.waybar.enable = true;
 

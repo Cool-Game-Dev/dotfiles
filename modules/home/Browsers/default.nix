@@ -12,7 +12,7 @@ let
 
   otherDesktopFiles = lib.mapAttrsToList (name: _: desktopFiles.${name}) (
     lib.filterAttrs (name: browser: browser.enable && name != cfg.default) cfg.browsers
-  );dotfyls
+  );
 
 in
 {
@@ -29,7 +29,7 @@ in
   ];
 
   options.browsers.enable = lib.mkEnableOption "browsers" // {
-    default =  config.elysium.desktops.enable; 
+    default = config.elysium.desktops.enable;
   };
 
   config = lib.mkIf cfg.enable {

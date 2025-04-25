@@ -9,7 +9,8 @@ in
     enable = lib.mkEnableOption "Hyprland" // {
       default = lib.anyUserHasOption "elysium.desktops.desktops.hyprland.enable";
     };
-  
+  };
+
   config = lib.mkIf (cfg'.enable && cfg.enable) {
     programs.hyprland.enable = true;
   };

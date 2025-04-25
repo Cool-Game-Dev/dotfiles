@@ -1,4 +1,9 @@
-{ config, lib, hostSpec, ... }:
+{
+  config,
+  lib,
+  hostSpec,
+  ...
+}:
 
 let
   cfg = config.elysium.management.time;
@@ -12,7 +17,7 @@ in
 
   config = lib.mkMerge [
     { time.timeZone = lib.mkDefault "America/Chicago"; }
-    { timesyncd.enable = true;}
+    { timesyncd.enable = true; }
     (lib.mkIf cfg.automatic-zone {
       elysium.management.geolocation.enable = lib.mkDefault true;
 

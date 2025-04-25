@@ -4,7 +4,7 @@
   ...
 }:
 
-let 
+let
   cfg = config.dotfyls.desktops;
 in
 {
@@ -20,11 +20,11 @@ in
   ];
 
   options.elysium.desktops = {
-      enable = lib.mkEnableOption "desktops" // {
-        default = true;
-      };
+    enable = lib.mkEnableOption "desktops" // {
+      default = true;
+    };
 
-  }
+  };
 
   config = lib.mkIf cfg.enable {
     xdg.portal.xdgOpenUsePortal = true;

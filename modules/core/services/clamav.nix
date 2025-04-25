@@ -1,13 +1,18 @@
-{ config, lib, hostSpec, ... }:
+{
+  config,
+  lib,
+  hostSpec,
+  ...
+}:
 
-let 
+let
   cfg = config.elysium.services.clamav;
 in
 {
-  options.elysium.services.clamav = { 
+  options.elysium.services.clamav = {
     enable = lib.mkEnableOption "ClamAV" // {
       default = hostSpec.isDesktop;
-    }; 
+    };
     daemon.enable = lib.mkEnableOption "ClamAV daemon" // {
       default = hostSpec.isDesktop;
     };
@@ -17,7 +22,7 @@ in
     };
   };
 
-  config = lib.mkIf cfg.enable{
+  config = lib.mkIf cfg.enable {
     services.clamav = {
       daemon.enable = cfg.daemon.enable;
       scanner.enable = cfg.scanner.enable;

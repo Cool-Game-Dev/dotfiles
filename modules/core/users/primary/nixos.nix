@@ -1,13 +1,18 @@
-{ config, lib, hostSpec, ... }:
+{
+  config,
+  lib,
+  hostSpec,
+  ...
+}:
 
 {
   users.users."${hostSpec.username}" = {
-      isNormalUser = true;
-      home = "/home/${hostSpec.username}";
-      group = "${hostSpec.username}";
-      extraGroups = [
-        "wheel"
-        "video"
-      ];
-    };
+    isNormalUser = true;
+    home = "/home/${hostSpec.username}";
+    group = "${hostSpec.username}";
+    extraGroups = [
+      "wheel"
+      "video"
+    ];
+  };
 }

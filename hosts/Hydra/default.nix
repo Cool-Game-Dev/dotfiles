@@ -2,7 +2,7 @@
 {
   config.hostSpec = {
     networking = {
-      
+
     };
   };
 }

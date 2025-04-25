@@ -1,16 +1,21 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
-let 
+let
   cfg = config.elysium.boot;
-in 
+in
 {
 
-	options.elysium.boot = {
-		kernal = lib.mkOption {
-			type = lib.types.raw;
-			default = pkgs.linuxPackages_zen;
-		};
-	};
+  options.elysium.boot = {
+    kernal = lib.mkOption {
+      type = lib.types.raw;
+      default = pkgs.linuxPackages_zen;
+    };
+  };
 
   boot = {
     kernelPackages = cfg.kernal;

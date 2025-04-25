@@ -6,7 +6,7 @@
   ...
 }:
 
-let 
+let
   cfg'' = config.elysium.desktops;
   cfg' = cfg''.desktops.hyprland;
   cfg = cfg'.hyprlock;

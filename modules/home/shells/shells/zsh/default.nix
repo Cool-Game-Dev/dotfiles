@@ -1,6 +1,6 @@
 {
   config,
-	lib,
+  lib,
   pkgs,
   ...
 }:
@@ -10,7 +10,7 @@ let
   cfg = cfg'.shells.zsh;
 in
 {
-	options.dotfyls.shells.shells.zsh = {
+  options.dotfyls.shells.shells.zsh = {
     enable = lib.mkEnableOption "Zsh";
     package = lib.mkStaticPackageOption (lib.getCfgPkg config.programs.zsh);
   };

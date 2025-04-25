@@ -1,6 +1,6 @@
 { config, lib, ... }:
 
-let 
+let
   cfg = config.elysium.services.gvfs;
 in
 {

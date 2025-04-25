@@ -1,10 +1,31 @@
-{ config, inputs, lib, pkgs, ... }:
+{
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   hostSpec = config.hostSpec;
   inherit (hostSpec) username hostName;
-  inherit pkgs inputs lib config;
-  importWithArgs = path: import (lib.relativeToRoot path) { inherit pkgs inputs config lib hostSpec; };
+  inherit
+    pkgs
+    inputs
+    lib
+    config
+    ;
+  importWithArgs =
+    path:
+    import (lib.relativeToRoot path) {
+      inherit
+        pkgs
+        inputs
+        config
+        lib
+        hostSpec
+        ;
+    };
 in
 {
   home-manager = {

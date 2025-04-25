@@ -1,6 +1,11 @@
-{ config, lib, hostSpec, ... }:
+{
+  config,
+  lib,
+  hostSpec,
+  ...
+}:
 
-let 
+let
   cfg = config.elysium.services.printing;
 in
 {
