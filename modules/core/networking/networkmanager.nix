@@ -1,6 +1,6 @@
 { config, lib, ... }:
 
-let 
+let
   cfg = config.elysium.networking.networkmanager;
 in
 {

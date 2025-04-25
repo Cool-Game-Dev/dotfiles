@@ -1,7 +1,6 @@
-{ config, lib, ... }:
+{ config, ... }:
 
 {
-
   networking = {
     hostName = config.hostSpec.hostName;
   };
