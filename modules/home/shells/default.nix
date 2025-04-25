@@ -48,11 +48,6 @@ in
           sCfg = cfg.shells.${cfg.default};
         in
         lib.mkIf (sCfg ? package) (self.lib.getCfgExe sCfg);
-
-      shellAliases = {
-        ".." = "cd ..";
-        ccat = "command cat";
-      };
     };
   };
 }
