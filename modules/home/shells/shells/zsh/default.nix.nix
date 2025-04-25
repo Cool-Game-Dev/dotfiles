@@ -33,6 +33,7 @@
     initExtra = ''
       instant-zsh-post
     '';
+    
   };
 
   programs.thefuck.enable = true;
