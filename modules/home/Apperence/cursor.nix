@@ -7,7 +7,7 @@
 
 {
 
-  home.pointerCursor = lib.optinalAttrs config.config.hostSpecuseWindowManager {
+  home.pointerCursor = lib.optinalAttrs config.config.hostSpec.useWindowManager {
     name = "LyraP-cursors";
     package = pkgs.lyra-cursors;
     size = 36;

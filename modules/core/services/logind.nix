@@ -19,7 +19,7 @@ in
 {
   options.elysium.services.logind = {
     enable = lib.mkEnableOption "logind" // {
-      default = config.hostSpecisDesktop;
+      default = config.hostSpec.isDesktop;
     };
 
     lidSwitch = lib.mkOption {

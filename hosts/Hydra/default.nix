@@ -1,6 +1,6 @@
 { ... }:
 {
-  config.hostSpec = {
+  config.hostSpec. = {
     networking = {
 
     };

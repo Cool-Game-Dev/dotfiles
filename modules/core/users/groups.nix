@@ -5,7 +5,7 @@
 
 {
   users.groups = {
-    "${config.hostSpecusername}" = {
+    "${config.hostSpec.username}" = {
       gid = 1000;
     };
   };

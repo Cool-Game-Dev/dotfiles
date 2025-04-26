@@ -7,24 +7,24 @@
   ...
 }:
 let
-  hostSpec = config.hostSpec;
+  hostSpec = config.hostSpec.;
 in
 {
-  users.users.${config.hostSpecusername} = {
-    name = config.hostSpecusername;
+  users.users.${config.hostSpec.username} = {
+    name = config.hostSpec.username;
   };
 }
 // lib.optionalAttrs (inputs ? "home-manager") {
   home-manager = {
     extraSpecialArgs = {
       inherit pkgs master inputs;
-      hostSpec = config.hostSpec;
+      hostSpec = config.hostSpec.;
     };
-    users.${config.hostSpecusername}.imports = lib.flatten (
-      lib.optional (!config.hostSpecisMinimal) [
+    users.${config.hostSpec.username}.imports = lib.flatten (
+      lib.optional (!config.hostSpec.isMinimal) [
         (
           { config, ... }:
-          import (lib.relativeToRoot "home/${config.hostSpecusername}/${config.hostSpechostName}.nix")
+          import (lib.relativeToRoot "home/${config.hostSpec.username}/${config.hostSpec.hostName}.nix")
             {
               inherit
                 pkgs

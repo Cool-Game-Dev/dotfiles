@@ -11,7 +11,7 @@ in
 {
   options.elysium.management.time = {
     automatic-zone = lib.mkEnableOption "Automatic timezone" // {
-      default = config.hostSpecisDesktop;
+      default = config.hostSpec.isDesktop;
     };
   };
 

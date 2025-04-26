@@ -10,7 +10,7 @@ let
 in
 {
   options.elysium.networking.bluetooth.enable = lib.mkEnableOption "Bluetooth" // {
-    default = config.hostSpecisDesktop;
+    default = config.hostSpec.isDesktop;
   };
 
   config = {
