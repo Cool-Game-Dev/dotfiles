@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  hostSpec,
+
   ...
 }:
 
@@ -11,10 +11,10 @@ in
 {
   options.elysium.services.clamav = {
     enable = lib.mkEnableOption "ClamAV" // {
-      default = hostSpec.isDesktop;
+      default = config.hostSpecisDesktop;
     };
     daemon.enable = lib.mkEnableOption "ClamAV daemon" // {
-      default = hostSpec.isDesktop;
+      default = config.hostSpecisDesktop;
     };
 
     scanner.enable = lib.mkEnableOption "ClamAV scanner" // {

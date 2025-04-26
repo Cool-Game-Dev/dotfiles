@@ -1,11 +1,11 @@
 {
-  hostSpec,
+  config,
   ...
 }:
 
 {
   users.groups = {
-    "${hostSpec.username}" = {
+    "${config.hostSpecusername}" = {
       gid = 1000;
     };
   };

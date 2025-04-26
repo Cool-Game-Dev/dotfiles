@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  hostSpec,
+
   ...
 }:
 
@@ -10,7 +10,7 @@ let
 in
 {
   options.elysium.services.libinput.enable = lib.mkEnableOption "libinput" // {
-    default = hostSpec.isDesktop;
+    default = config.hostSpecisDesktop;
   };
 
   config = lib.mkIf cfg.enable {

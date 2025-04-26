@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  hostSpec,
+
   ...
 }:
 
@@ -10,7 +10,7 @@ let
 in
 {
   options.elysium.services.printing.enable = lib.mkEnableOption "CUPS printing" // {
-    default = hostSpec.isDesktop;
+    default = config.hostSpecisDesktop;
   };
 
   cfg = lib.mkIf cfg.enable {

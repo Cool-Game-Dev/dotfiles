@@ -2,6 +2,6 @@
 
 {
   networking = {
-    hostName = config.hostSpec.hostName;
+    hostName = config.config.hostSpechostName;
   };
 }

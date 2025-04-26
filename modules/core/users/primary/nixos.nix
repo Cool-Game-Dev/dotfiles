@@ -1,13 +1,13 @@
 {
-  hostSpec,
+  config,
   ...
 }:
 
 {
-  users.users."${hostSpec.username}" = {
+  users.users."${config.hostSpecusername}" = {
     isNormalUser = true;
-    home = "/home/${hostSpec.username}";
-    group = "${hostSpec.username}";
+    home = "/home/${config.hostSpecusername}";
+    group = "${config.hostSpecusername}";
     extraGroups = [
       "wheel"
       "video"
