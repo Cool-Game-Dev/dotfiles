@@ -10,5 +10,6 @@
     man
     ncdu
     gcc
+    (pkgs.lib.hiPrio pkgs.uutils-coreutils-noprefix)
   ];
 }
