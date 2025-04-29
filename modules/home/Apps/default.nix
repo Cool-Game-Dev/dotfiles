@@ -14,5 +14,5 @@
     ./kde-apps.nix
   ];
 
-  home.packages = [ pkgs.orca-slicer pkgs.freecad-wayland ];
+  home.packages = [ pkgs.orca-slicer pkgs.freecad-wayland pkgs.vesktop ];
 }
