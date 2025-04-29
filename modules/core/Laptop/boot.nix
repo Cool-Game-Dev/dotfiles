@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+  systemd.services."NetworkManager-wait-online".enable = false;
+  
   boot = {
     binfmt.emulatedSystems = [ "aarch64-linux" ];
     kernelPackages = pkgs.linuxPackages_zen;
