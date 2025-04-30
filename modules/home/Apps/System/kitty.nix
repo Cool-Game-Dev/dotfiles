@@ -48,7 +48,6 @@
       foreground = vauxhall.text.hex;
       background = vauxhall.background.hex;
       selection_background = vauxhall.text.hex;
-      background_opacity = 0.65;
 
       # The basic 16 colors
       # black

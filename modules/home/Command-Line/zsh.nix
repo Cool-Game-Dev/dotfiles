@@ -31,9 +31,9 @@
     '';
 
     initExtra = ''
+      eval "$(tv init zsh)" > /dev/null
       instant-zsh-post
     '';
   };
-
   programs.thefuck.enable = true;
 }

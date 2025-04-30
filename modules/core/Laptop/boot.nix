@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  systemd.network.wait-online.enable = false;
+
   
   boot = {
     binfmt.emulatedSystems = [ "aarch64-linux" ];

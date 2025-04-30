@@ -82,12 +82,10 @@
         gaps_in = "4";
         gaps_out = "0, 8, 8, 8";
 
-        border_size = 1;
+        border_size = 2;
 
         # https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
-        "col.active_border" =
-          "rgb(${vauxhall.cyan.alpha}) rgb(${vauxhall.cyanBlue.alpha}) rgb(${vauxhall.blue.alpha}) rgb(${vauxhall.blueViolet.alpha}) rgb(${vauxhall.violet.alpha}) 45deg";
-        "col.inactive_border" = "rgb(515768)";
+        "col.active_border" = "rgb(${vauxhall.cyan.alpha})";
 
         # Set to true enable resizing windows by clicking and dragging on borders and gaps
         resize_on_border = false;
@@ -108,7 +106,7 @@
       };
 
       decoration = {
-        rounding = 10;
+        rounding = 0;
 
         # Change transparency of focused and unfocused windows
         active_opacity = 1.0;
