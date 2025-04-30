@@ -21,8 +21,6 @@ in
 
       theme = {
         "*" = {
-          red = mkLiteral "rgba(220, 50, 47, 100%)";
-          blue = mkLiteral "rgba(38, 139, 210, 100%)";
 
           foreground = mkLiteral "#cccccc";
           normal-foreground = mkLiteral "@foreground";
