@@ -1,11 +1,11 @@
 { config, lib, pkgs, ... }:
 
 let 
-  cfg' = config.elysium.development;
+  cfg' = config.elysium.development.languages;
   cfg = cfg'.dotnet;
 in
 {
-  options.elysium.development.dotnet.enable = lib.mkEnableOption "Dotnet" // {
+  options.elysium.development.languages.dotnet.enable = lib.mkEnableOption "Dotnet" // {
     default = cfg'.enable;
   };
 
