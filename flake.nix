@@ -6,6 +6,8 @@
 
     stable.url = "nixpkgs/nixos-24.11";
 
+    inputs.treefmt-nix.url = "github:numtide/treefmt-nix";
+
     activate-linux.url = "github:MrGlockenspiel/activate-linux";
 
     home-manager = {
@@ -37,13 +39,14 @@
     {
       self,
       nixpkgs,
+      treefmt-nix
       sops-nix,
       ...
     }@inputs:
     let
       inherit (self) outputs;
       lib = nixpkgs.lib.extend (self: super: { custom = import ./lib { inherit (nixpkgs) lib; }; });
-
+      treefmtEval = forAllSystems (pkgs: treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
       forAllSystems = nixpkgs.lib.genAttrs [
         "x86_64-linux"
         # "aarch64-linux"
@@ -64,7 +67,7 @@
         }
       );
 
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+      formatter = forAllSystems (system: pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
 
       nixosConfigurations =
         builtins.readDir ./hosts/nixos
