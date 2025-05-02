@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, vauxhall, ... }:
 
 let
   inherit (config.lib.formats.rasi) mkLiteral;
@@ -24,34 +24,33 @@ in
         alternate-urgent-foreground = mkLiteral "@urgent-foreground";
         alternate-active-foreground = mkLiteral "@active-foreground";
 
-        background = mkLiteral "#06091699";
+        background = mkLiteral vauxhall.background.hex;
         lightbg = mkLiteral "#515768";
         normal-background = mkLiteral "@background";
         urgent-background = mkLiteral "@background";
         active-background = mkLiteral "@background";
-        selected-normal-background = mkLiteral "#9446f8";
+        selected-normal-background = mkLiteral vauxhall.violet.hex;
         selected-active-background = mkLiteral "@selected-normal-background";
         selected-urgent-background = mkLiteral "@selected-normal-background";
         alternate-normal-background = mkLiteral "@normal-background";
         alternate-urgent-background = mkLiteral "@urgent-background";
         alternate-active-background = mkLiteral "@active-background";
 
-        window-border-color = mkLiteral "#515768";
-        border-color = mkLiteral "#51e1e9";
-        separatorcolor = mkLiteral "rgba(219, 223, 188, 100%)";
+        window-border-color = mkLiteral vauxhall.cyan.hex;
+        border-color = mkLiteral vauxhall.cyan.hex;
+        separatorcolor = mkLiteral vauxhall.background.hex;
         background-color = mkLiteral "rgba(0, 0, 0, 0%)";
       };
 
       "#window" = {
         background-color = mkLiteral "@background";
-        border = mkLiteral "1";
-        border-radius = mkLiteral "10px";
+        border = mkLiteral "2";
         border-color = mkLiteral "@window-border-color";
         padding = mkLiteral "5";
       };
 
-      "#mainbox" = {
-        border = mkLiteral "0";
+      "#mainbox" = {   
+        background = mkLiteral "@background";
         padding = mkLiteral "0";
       };
 
@@ -62,13 +61,16 @@ in
       };
 
       "#textbox" = {
-        text-color = mkLiteral "@foreground";
+        text-color = mkLiteral vauxhall.blue.hex;
+        border = mkLiteral "2px";
+        border-color = mkLiteral "@border-color";
+        margin = mkLiteral "3px";
       };
 
       "#listview" = {
         fixed-height = mkLiteral "0";
-        border = mkLiteral "2px 0px 0px";
-        border-color = mkLiteral "@separatorcolor";
+        border = mkLiteral "2px";
+        border-color = mkLiteral "@border-color";
         spacing = mkLiteral "10px";
         scrollbar = mkLiteral "true";
         padding = mkLiteral "2px 0px 0px";
@@ -76,7 +78,7 @@ in
 
       "#element" = {
         border = mkLiteral "0";
-        padding = mkLiteral "1px";
+        padding = mkLiteral "2px";
       };
 
       "#element-text" = {
@@ -100,8 +102,7 @@ in
         background-color = mkLiteral "@selected-normal-background";
         text-color = mkLiteral "@selected-normal-foreground";
         border-color = mkLiteral "@border-color";
-        border = mkLiteral "1px";
-        border-radius = mkLiteral "5px";
+        border = mkLiteral "2px";
       };
 
       "#element.selected.urgent" = {
@@ -143,12 +144,6 @@ in
         text-color = mkLiteral "@selected-normal-foreground";
       };
 
-      "#inputbar" = {
-        spacing = mkLiteral "0";
-        text-color = mkLiteral "@normal-foreground";
-        padding = mkLiteral "1px";
-      };
-
       "#case-indicator" = {
         spacing = mkLiteral "0";
         text-color = mkLiteral "@normal-foreground";
@@ -156,12 +151,12 @@ in
 
       "#entry" = {
         spacing = mkLiteral "0";
-        text-color = mkLiteral "@normal-foreground";
+				text-color = mkLiteral vauxhall.blue.hex;
       };
 
       "#prompt" = {
         spacing = mkLiteral "0";
-        text-color = mkLiteral "@normal-foreground";
+			 text-color = mkLiteral vauxhall.blue.hex;
       };
 
       "#inputbar" = {
@@ -171,13 +166,17 @@ in
           "entry"
           "case-indicator"
         ];
+
+				border = mkLiteral "2px";
+				border-color = mkLiteral "@border-color";
+				text-color = mkLiteral vauxhall.blue.hex;
       };
 
       "#textbox-prompt-colon" = {
         expand = mkLiteral "false";
         str = ":";
         margin = mkLiteral "0px 0.3em 0em 0em";
-        text-color = mkLiteral "@normal-foreground";
+				text-color = mkLiteral vauxhall.blue.hex;
       };
     };
 
