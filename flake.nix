@@ -6,7 +6,10 @@
 
     stable.url = "nixpkgs/nixos-24.11";
 
-    inputs.treefmt-nix.url = "github:numtide/treefmt-nix";
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     activate-linux.url = "github:MrGlockenspiel/activate-linux";
 
@@ -39,7 +42,7 @@
     {
       self,
       nixpkgs,
-      treefmt-nix
+      treefmt-nix,
       sops-nix,
       ...
     }@inputs:
@@ -67,7 +70,7 @@
         }
       );
 
-      formatter = forAllSystems (system: pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
+      formatter = forAllSystems (system: pkgs: treefmtEval.${system}.config.build.wrapper);
 
       nixosConfigurations =
         builtins.readDir ./hosts/nixos

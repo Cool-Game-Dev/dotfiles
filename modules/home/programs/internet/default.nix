@@ -1,14 +1,11 @@
 {
   config,
-  pkgs,
-  zen-browser,
+  lib,
   ...
 }:
 
 {
-  imports = [
-    ./freetube.nix
-    ./kde-connect.nix
-    ./zen-browser.nix
-  ];
+  options.elysium.programs.internet.enable = lib.mkEnableOption "Internet Apps";
+  
+  imports = lib.scanPaths ./.;
 }

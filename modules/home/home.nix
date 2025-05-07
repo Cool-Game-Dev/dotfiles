@@ -7,10 +7,7 @@
 
 {
   home = {
-    username = userSettings.username;
-    homeDirectory = "/home/${userSettings.username}";
-
-    packages = with pkgs; [ unzip ];
+    username = config.hostSpec.username;
 
     sessionVariables = {
       EDITOR = "micro";
@@ -25,6 +22,5 @@
 
   nixpkgs.config = {
     allowUnfree = true;
-    permittedInsecurePackages = [ "dotnet-sdk-6.0.428" ];
   };
 }
