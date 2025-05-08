@@ -1,9 +1,7 @@
 {
   config,
-  pkgs,
-  userSettings,
   ...
-}@inputs:
+}:
 
 {
   home = {

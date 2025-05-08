@@ -1,9 +1,3 @@
-{ config, pkgs, ... }:
-
-{
-  services.kdeconnect.enable = true;
-
-}
 { config, lib, ... }:
 
 let

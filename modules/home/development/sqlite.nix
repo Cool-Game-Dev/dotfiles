@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg' = config.elysium.developemnt;
@@ -10,6 +15,6 @@ in
   };
 
   config = lib.mkIf cfg.enable // {
-      home.packages = [ pkgs.sqlite ];
+    home.packages = [ pkgs.sqlite ];
   };
 }

@@ -7,7 +7,7 @@
   ...
 }:
 let
-  hostSpec = config.hostSpec.;
+  hostSpec = config.hostSpec;
 in
 {
   users.users.${config.hostSpec.username} = {
@@ -18,7 +18,7 @@ in
   home-manager = {
     extraSpecialArgs = {
       inherit pkgs master inputs;
-      hostSpec = config.hostSpec.;
+      hostSpec = config.hostSpec;
     };
     users.${config.hostSpec.username}.imports = lib.flatten (
       lib.optional (!config.hostSpec.isMinimal) [

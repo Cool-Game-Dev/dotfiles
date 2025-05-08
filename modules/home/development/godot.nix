@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg' = config.elysium.development;
@@ -12,12 +17,12 @@ in
 
     exportTemplates = lib.mkEnableOption "Godot export templates" // {
       default = cfg.enable;
-    }
+    };
   };
 
   config = lib.mkIf cfg.enable {
     home.packages = [
-      pkgs.godot_4-mono   
+      pkgs.godot_4-mono
     ] ++ lib.optional cfg.exportTemplates pkgs.godot_4-export-templates;
   };
 }
