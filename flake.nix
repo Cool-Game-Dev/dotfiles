@@ -70,7 +70,7 @@
         }
       );
 
-      formatter = forAllSystems (system: pkgs: treefmtEval.${system}.config.build.wrapper);
+      formatter = forAllSystems (system: treefmtEval.${system}.config.build.wrapper);
 
       nixosConfigurations =
         builtins.readDir ./hosts/nixos
