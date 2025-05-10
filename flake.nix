@@ -48,13 +48,18 @@
     }@inputs:
     let
       inherit (self) outputs;
-      lib = nixpkgs.lib.extend (self: super: { custom = import ./lib { inherit (nixpkgs) lib; }; });
-      treefmtEval = forAllSystems (pkgs: treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
+      lib = nixpkgs.lib.extend (
+        self: super: {
+          elysium = super.elysium // {
+            custom = import ./lib { inherit (nixpkgs) lib; };
+          };
+        }
+      );
+
       forAllSystems = nixpkgs.lib.genAttrs [
         "x86_64-linux"
         # "aarch64-linux"
       ];
-
       vauxhall = import ./Vauxhall.nix;
 
     in
@@ -70,7 +75,13 @@
         }
       );
 
-      formatter = forAllSystems (system: treefmtEval.${system}.config.build.wrapper);
+      formatter = forAllSystems (
+        system:
+        let
+          pkgs = import nixpkgs { inherit system; };
+        in
+        treefmt-nix.lib.mkWrapper pkgs ./treefmt.nix
+      );
 
       nixosConfigurations =
         builtins.readDir ./hosts/nixos
