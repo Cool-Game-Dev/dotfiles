@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  programs.nixfmt-rfc-style.enable = true;
+  programs.nixfmt.enable = true;
 
   programs.yamlfmt.enable = true;
 }
