@@ -23,5 +23,4 @@
       users = inputs.home-manager.users;
     in
     lib.any (userCfg: lib.attrByPath path false userCfg) (lib.attrValues users);
-
 }
