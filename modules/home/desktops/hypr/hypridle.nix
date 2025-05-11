@@ -7,12 +7,12 @@
 
 let
   cfg'' = config.elysium.desktops;
-  cfg' = cfg''.desktops.hyprland;
-  cfg = cfg'.hypridle;
+  cfg' = cfg''.hypr;
+  cfg = cfg'.idle;
 in
 {
-  options.elysium.desktops.hyprland.hypridle.enable = lib.mkEnableOption "Hypridle" // {
-    default = cfg'.enable;
+  options.elysium.desktops.hypr.idle.enable = lib.mkEnableOption "Hypridle" // {
+    default = cfg'.hypr.enable;
   };
 
   config = lib.mkIf (cfg''.enable && cfg'.enable && cfg.enable) {

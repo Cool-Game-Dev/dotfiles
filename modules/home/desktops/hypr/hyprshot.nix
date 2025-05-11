@@ -7,8 +7,8 @@
 
 let
   cfg'' = config.elysium.desktops;
-  cfg' = cfg''.desktops.hyprland;
-  cfg = cfg'.hyprshot;
+  cfg' = cfg''.hypr;
+  cfg = cfg'.shot;
 in
 {
   options.elysium.desktops.hyprland.hyprshot.enable = lib.mkEnableOption "Hyprshot" // {

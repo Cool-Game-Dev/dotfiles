@@ -8,12 +8,12 @@
 
 let
   cfg'' = config.elysium.desktops;
-  cfg' = cfg''.desktops.hyprland;
-  cfg = cfg'.hyprlock;
+  cfg' = cfg''.hypr;
+  cfg = cfg'.lock;
 in
 {
   options.elysium.desktops.hyprland.hyprlock.enable = lib.mkEnableOption "Hyprlock" // {
-    default = cfg'.enable;
+    default = cfg'.hypr.enable;
   };
 
   config = lib.mkIf (cfg''.enable && cfg'.enable && cfg.enable) {

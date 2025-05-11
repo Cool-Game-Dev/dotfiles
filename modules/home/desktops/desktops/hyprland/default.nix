@@ -23,7 +23,16 @@ in
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg'.enable && cfg.enable) {
+    systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
+
+    elysium.desktops = {
+      hypr.enable = true;
+      rofi.enable = true;
+      swaync.enable = true;
+      waybar.enable = true;
+      activate-linux.enable = true;
+    };
     wayland.windowManager.hyprland = {
       enable = true;
       plugins = lib.ifList [

@@ -7,8 +7,8 @@
 
 let
   cfg'' = config.elysium.desktops;
-  cfg' = cfg''.desktops.hyprland;
-  cfg = cfg'.hyprlock;
+  cfg' = cfg''.hypr;
+  cfg = cfg'.lock;
 in
 {
   options.elysium.desktops.hyprland.hyprpicker.enable = lib.mkEnableOption "Hyprpicker" // {
