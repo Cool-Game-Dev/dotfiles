@@ -10,15 +10,12 @@ let
   cfg = cfg'.display-managers.greetd;
 in
 {
-  imports = [
-    ./greeter
-
+  imports =
     (self.lib.mkSelectorModule [ "elysium" "display-managers" "display-managers" "greetd" "greeter" ] {
-      name = "provider";
+      name = "provider";mkSelect
       default = "tuigreet";
       description = "Greeter to use for greetd.";
-    })
-  ];
+    }) ++ lib.elysium.scanPaths ./.;
 
   options.elysium.display-managers.display-managers.greetd.enable = lib.mkEnableOption "greetd";
 

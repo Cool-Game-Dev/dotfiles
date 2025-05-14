@@ -12,6 +12,7 @@ let
   cfg = cfg'.rofi;
 in
 {
+  imports = lib.elysium.scanPaths ./.;
   options.elysium.desktops.rofi = lib.mkEnableOption "Rofi";
 
   config = lib.mkIf (cfg'.enable && cfg.enable) {

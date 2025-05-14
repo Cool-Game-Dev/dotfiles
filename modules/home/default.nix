@@ -1,5 +1,5 @@
 { lib, ... }:
 
 {
-  imports = lib.scanPaths ./.;
+  imports = lib.elysium.scanPaths ./.;
 }

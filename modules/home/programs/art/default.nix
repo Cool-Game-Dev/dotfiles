@@ -5,5 +5,5 @@ let
 in
 {
   options.elysium.programs.art.enable = lib.mkEnableOption "Art programs";
-  imports = lib.scanPaths ./.;
+  imports = lib.elysium.scanPaths ./.;
 }

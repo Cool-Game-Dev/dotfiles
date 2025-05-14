@@ -48,13 +48,7 @@
     }@inputs:
     let
       inherit (self) outputs;
-      lib = nixpkgs.lib.extend (
-        self: super: {
-          elysium = super.elysium // {
-            custom = import ./lib { inherit (nixpkgs) lib; };
-          };
-        }
-      );
+      lib = nixpkgs.lib.extend (self: super: { elysium = import ./lib { inherit (nixpkgs) lib; }; });
 
       forAllSystems = nixpkgs.lib.genAttrs [
         "x86_64-linux"

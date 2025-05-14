@@ -16,17 +16,13 @@ let
 
 in
 {
-  imports = [
-    ./zen-browser
-    ./firefox
-
+  imports =
     (lib.mkSelectorModule [ "elysium" "browsers" ] {
       name = "default";
       default = "zen-browser";
       example = "firefox";
       description = "Default browser to use.";
-    })
-  ];
+    }) ++ lib.elysium.scanPaths ./.;
 
   options.browsers.enable = lib.mkEnableOption "browsers" // {
     default = config.elysium.desktops.enable;

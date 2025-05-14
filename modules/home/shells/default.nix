@@ -6,19 +6,15 @@
 }:
 
 let
-  cfg = config.dotfyls.shells;
+  cfg = config.elysium.shells;
 in
 {
-  imports = [
-    ./programs
-    ./shells
-
-    (self.lib.mkSelectorModule [ "dotfyls" "shells" ] {
+  imports = 
+    (self.lib.mkSelectorModule [ "elysium" "shells" ] {
       name = "default";
       default = "zsh";
       description = "Default shell to use.";
-    })
-  ];
+    }) ++ lib.elysium.scanPaths ./.;
 
   options.dotfyls.shells = {
     historySize = lib.mkOption {

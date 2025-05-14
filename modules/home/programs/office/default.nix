@@ -1,9 +1,5 @@
-{ config, pkgs, ... }:
+{ lib, ... }:
 
 {
-  imports = [
-    ./libreoffice.nix
-    ./obsidian.nix
-    ./okular.nix
-  ];
+  imports = lib.elysium.scanPaths ./.;
 }

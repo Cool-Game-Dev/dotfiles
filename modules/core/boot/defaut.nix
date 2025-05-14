@@ -4,6 +4,7 @@ let
   cfg = config.elysium.boot;
 in
 {
+  import = lib.elysium.scanPaths ./.;
   options.elysium.boot.pauseForInternet =
     lib.mkEnableOption "Pause the boot process to wait for Internet to connet."
     // {

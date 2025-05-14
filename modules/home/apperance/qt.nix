@@ -5,11 +5,16 @@
   ...
 }:
 
+let
+  cfg' = config.elysium.apperance;
+  cfg = cfg.qt;
+in
 {
   options.elysium.apperance.qt.enable = lib.mkEnableOption "Qt" // {
-    default = config.elysium.desktops.enable;
+    default = cfg'.enable;
   };
-  config = {
+
+  config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       libsForQt5.qtstyleplugin-kvantum
       libsForQt5.qt5ct

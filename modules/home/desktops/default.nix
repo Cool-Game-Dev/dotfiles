@@ -8,16 +8,13 @@ let
   cfg = config.dotfyls.desktops;
 in
 {
-  imports = [
-    ./Hyprland
-
+  imports = 
     (lib.mkSelectorModule [ "elysium" "desktops" ] {
       name = "default";
       default = "hyprland";
       example = "hyprland";
       description = "Default desktop to use.";
-    })
-  ];
+    }) ++ lib.elysium.scanPaths ./.;
 
   options.elysium.desktops = {
     enable = lib.mkEnableOption "desktops" // {

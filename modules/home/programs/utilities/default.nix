@@ -1,10 +1,5 @@
-{ config, pkgs, ... }:
+{ lib, ... }:
 
 {
-  imports = [
-    ./ente-auth.nix
-    ./kcalc.nix
-    ./merkuro.nix
-    ./tagstudio.nix
-  ];
+  imports = lib.elysium.scanPaths ./.;
 }

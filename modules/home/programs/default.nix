@@ -1,18 +1,8 @@
 {
-  inputs,
-  username,
-  zen-browser,
+  lib,
   ...
 }:
 
 {
-  imports = [
-    ./Art
-    ./Development
-    ./Internet
-    ./Office
-    ./System
-    ./Utilities
-    ./kde-apps.nix
-  ];
+  imports = lib.elysium.scanPaths ./.;
 }
