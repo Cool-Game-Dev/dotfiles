@@ -10,8 +10,8 @@ in
     };
   };
 
-  boot.loader = {
-    grub = lib.mkIf cfg.grub.enable {
+  config = lib.mkIf cfg.grub.enable {
+    boot.loader.grub = {
       enable = true;
       efiSupport = true;
       devices = [ "nodev" ];

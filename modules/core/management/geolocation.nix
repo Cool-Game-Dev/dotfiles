@@ -9,7 +9,7 @@ let
   cfg = config.elysium.management.geolocation;
 in
 {
-  options.elysium.geolocation.enable = lib.mkEnableOption "Geolocation" // {
+  options.elysium.management.geolocation.enable = lib.mkEnableOption "Geolocation" // {
     default = !config.hostSpec.isServer;
   };
 

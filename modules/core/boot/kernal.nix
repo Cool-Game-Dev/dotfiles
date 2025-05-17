@@ -17,7 +17,7 @@ in
     };
   };
 
-  boot = {
+  config.boot = {
     kernelPackages = cfg.kernal;
   };
 }

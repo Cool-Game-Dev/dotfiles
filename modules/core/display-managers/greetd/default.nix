@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  self,
   ...
 }:
 
@@ -11,11 +10,11 @@ let
 in
 {
   imports =
-    (self.lib.mkSelectorModule [ "elysium" "display-managers" "display-managers" "greetd" "greeter" ] {
-      name = "provider";mkSelect
+    [(lib.elysium.mkSelectorModule [ "elysium" "display-managers" "display-managers" "greetd" "greeter" ] {
+      name = "provider";
       default = "tuigreet";
       description = "Greeter to use for greetd.";
-    }) ++ lib.elysium.scanPaths ./.;
+    })] ++ lib.elysium.scanPaths ./.;
 
   options.elysium.display-managers.display-managers.greetd.enable = lib.mkEnableOption "greetd";
 

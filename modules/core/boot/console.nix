@@ -21,7 +21,5 @@
       vauxhall.white.alpha
     ];
     font = "Lat2-Terminus16";
-    setupEarly = true;
   };
-
 }

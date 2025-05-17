@@ -1,4 +1,4 @@
-{ lib, self, ... }:
+{ lib, ... }:
 
 {
   mkStaticPackageOption =
@@ -19,6 +19,6 @@
     };
 
   getCfgPkg = cfg: cfg.finalPackage or cfg.package;
-  getCfgExe' = cfg: exe: lib.getExe' (self.getCfgPkg cfg) exe;
-  getCfgExe = cfg: lib.getExe (self.getCfgPkg cfg);
+  getCfgExe' = cfg: exe: lib.getExe' (lib.elysium.getCfgPkg cfg) exe;
+  getCfgExe = cfg: lib.getExe (lib.elysium.getCfgPkg cfg);
 }

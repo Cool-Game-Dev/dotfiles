@@ -42,13 +42,11 @@
     {
       self,
       nixpkgs,
-      treefmt-nix,
-      sops-nix,
       ...
     }@inputs:
     let
       inherit (self) outputs;
-      lib = nixpkgs.lib.extend (self: super: { elysium = import ./lib { inherit (nixpkgs) lib; }; });
+      lib = nixpkgs.lib.extend (self: super: { elysium = import ./lib { inherit (nixpkgs) lib inputs; }; });
 
       forAllSystems = nixpkgs.lib.genAttrs [
         "x86_64-linux"
@@ -74,7 +72,7 @@
         let
           pkgs = import nixpkgs { inherit system; };
         in
-        treefmt-nix.lib.mkWrapper pkgs ./treefmt.nix
+        inputs.treefmt-nix.lib.mkWrapper pkgs ./treefmt.nix
       );
 
       nixosConfigurations =
@@ -94,8 +92,8 @@
             modules = [
               ./hosts/nixos/${host}
               ./modules/core
-              ./hosts/common
-              sops-nix.nixosModules.sops
+              ./modules/host-spec.nix
+              inputs.sops-nix.nixosModules.sops
             ];
           };
         })

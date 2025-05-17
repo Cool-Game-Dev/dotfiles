@@ -1,11 +1,10 @@
 {
-  inputs,
   pkgs,
   master,
   config,
   lib,
   ...
-}:
+}@inputs:
 let
   hostSpec = config.hostSpec;
 in

@@ -1,7 +1,6 @@
 {
   config,
   lib,
-
   ...
 }:
 
@@ -19,7 +18,8 @@ in
     { time.timeZone = lib.mkDefault "America/Chicago"; }
     { timesyncd.enable = true; }
     (lib.mkIf cfg.automatic-zone {
-      elysium.management.geolocation.enable = lib.mkDefault true;
+      # TODO: Find out why this doesnt work
+      # elysium.management.geolocation.enable = lib.mkDefault true;
 
       services.automatic-timezoned.enable = true;
     })

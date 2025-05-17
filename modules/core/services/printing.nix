@@ -1,7 +1,6 @@
 {
   config,
   lib,
-
   ...
 }:
 
@@ -13,7 +12,7 @@ in
     default = config.hostSpec.isDesktop;
   };
 
-  cfg = lib.mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     services.printing.enable = true;
   };
 }

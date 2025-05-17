@@ -7,7 +7,7 @@ in
 {
   options.dotfyls.desktops.desktops.hyprland = {
     enable = lib.mkEnableOption "Hyprland" // {
-      default = lib.anyUserHasOption "elysium.desktops.desktops.hyprland.enable";
+      default = lib.elysium.anyUserHasOption "elysium.desktops.desktops.hyprland.enable";
     };
   };
 

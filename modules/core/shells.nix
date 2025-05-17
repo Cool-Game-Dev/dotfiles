@@ -4,18 +4,17 @@ let
   cfg = config.elysium.shells;
 in
 {
-  imports = [
-    (lib.mkSelectorModule [ "elysium" "shells" ] {
-      name = "default";
-      default = "zsh";
-      example = "zsh";
-      description = "Default shell to use.";
-    })
-  ];
+  imports = 
+  [(lib.elysium.mkSelectorModule [ "elysium" "shells" ] {
+    name = "default";
+    default = "zsh";
+    example = "zsh";
+    description = "Default shell to use.";
+  })];
 
   options.elysium.shells.shells = {
     zsh.enable = lib.mkEnableOption "Zsh" // {
-      default = lib.anyUserHasOption "elysium.shells.zsh.enable";
+      default = lib.elysium.anyUserHasOption "elysium.shells.zsh.enable";
     };
   };
 
